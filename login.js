@@ -14,7 +14,6 @@ const usuarios = [
     senha: "123456"
   }
 
-
 ];
 
 function fazerLogin(){
