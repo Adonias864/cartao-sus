@@ -5,11 +5,6 @@ const usuarios = [
   },
 
   {
-    login: "cliente1",
-    senha: "abc123"
-  },
-
-  {
     login: "manoel",
     senha: "123456"
   }
