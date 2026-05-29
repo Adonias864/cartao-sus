@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-box">
+
+    <h1>Painel do Sistema</h1>
+
+    <p>
+      Login realizado com sucesso.
+    </p>
+
+    <button onclick="sair()">
+      Sair
+    </button>
+
+  </div>
+
+  <script>
+
+    if(localStorage.getItem("logado") !== "true"){
+
+      window.location.href = "index.html";
+
+    }
+
+    function sair(){
+
+      localStorage.removeItem("logado");
+
+      window.location.href = "index.html";
+
+    }
+
+  </script>
+
+</body>
+</html>
