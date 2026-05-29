@@ -8,11 +8,12 @@ const usuarios = [
     login: "cliente1",
     senha: "abc123"
   }
-  
+
   {
     login: "manoel",
-    senha: "2026"
+    senha: "19922026"
   }
+
 ];
 
 function fazerLogin(){
