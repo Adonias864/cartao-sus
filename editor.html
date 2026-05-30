@@ -3,35 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Editor de Cartão</title>
-
+<title>Editor</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
 <div class="login-box">
 
   <h1>Editor de Cartão</h1>
 
-  <!-- ÁREA DO CARTÃO -->
   <div class="cartao-area">
 
-    <img id="cartao" width="100%">
+    <img id="cartao">
 
-    <div id="nomePreview" class="campo nome"></div>
-    <div id="dataPreview" class="campo data"></div>
-    <div id="sexoPreview" class="campo sexo"></div>
-    <div id="cnsPreview" class="campo cns"></div>
-    <div id="cpfPreview" class="campo cpf"></div>
+    <div id="nomePreview"></div>
 
   </div>
 
-  <!-- FORMULÁRIO -->
   <h2>Dados</h2>
 
-  <input id="nome" placeholder="Nome completo">
-  <input id="data" placeholder="Data de nascimento">
+  <input id="nome" placeholder="Nome">
+  <input id="data" placeholder="Data">
 
   <select id="sexo">
     <option value="M">M</option>
@@ -41,7 +34,7 @@
   <input id="cns" placeholder="CNS">
   <input id="cpf" placeholder="CPF">
 
-  <button>Gerar Cartão</button>
+  <button class="app-btn">Gerar Cartão</button>
 
 </div>
 
@@ -58,8 +51,6 @@ if(!localStorage.getItem("modeloSelecionado")){
 const modelo = localStorage.getItem("modeloSelecionado");
 const cartao = document.getElementById("cartao");
 
-console.log("modelo:", modelo);
-
 if(modelo === "playstation"){
   cartao.src = "modelos/Cartao-SUS-Playstaion.png";
 }
@@ -67,35 +58,11 @@ if(modelo === "playstation"){
 const nomeInput = document.getElementById("nome");
 const nomePreview = document.getElementById("nomePreview");
 
-nomeInput.addEventListener("input", function(){
-  nomePreview.innerText = this.value.toUpperCase();
-});
-
-
-// 👇 AQUI ENTRA O PASSO 3 (NOVOS CAMPOS)
-
-const dataInput = document.getElementById("data");
-const sexoInput = document.getElementById("sexo");
-const cnsInput = document.getElementById("cns");
-const cpfInput = document.getElementById("cpf");
-
-dataInput.addEventListener("input", function(){
-  document.getElementById("dataPreview").innerText = this.value;
-});
-
-sexoInput.addEventListener("change", function(){
-  document.getElementById("sexoPreview").innerText = this.value;
-});
-
-cnsInput.addEventListener("input", function(){
-  document.getElementById("cnsPreview").innerText = this.value;
-});
-
-cpfInput.addEventListener("input", function(){
-  document.getElementById("cpfPreview").innerText = this.value;
+nomeInput.addEventListener("input", () => {
+  nomePreview.innerText = nomeInput.value.toUpperCase();
 });
 
 </script>
-  
+
 </body>
 </html>
