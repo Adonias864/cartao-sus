@@ -29,10 +29,6 @@
 
   <!-- FORMULÁRIO -->
   <h1>Dados do Cartão</h1>
-  ...
-</div>
-  
-  <h1>Dados do Cartão</h1>
 
   <input type="text" id="nome" maxlength="60" placeholder="NOME COMPLETO">
 
@@ -53,39 +49,9 @@
 
   <br><br>
 
-  <button>
-    Gerar Cartão
-  </button>
+  <button>Gerar Cartão</button>
 
 </div>
 
-<script>
-
-if(localStorage.getItem("logado") !== "true"){
-  window.location.href = "index.html";
-}
-
-if(!localStorage.getItem("modeloSelecionado")){
-  window.location.href = "modelos.html";
-}
-
-const modelo = localStorage.getItem("modeloSelecionado");
-const cartao = document.getElementById("cartao");
-
-if(modelo === "playstation"){
-  cartao.src = "modelos/Cartao-SUS-Playstaion.png";
-}
-
-const nomeInput = document.getElementById("nome");
-const nomePreview = document.getElementById("nomePreview");
-
-nomeInput.addEventListener("input", function(){
-
-  nomePreview.innerText = this.value.toUpperCase();
-
-});
-  
-</script>
-  
 </body>
 </html>
