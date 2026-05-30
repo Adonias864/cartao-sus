@@ -48,12 +48,14 @@
     if(localStorage.getItem("logado") !== "true"){
 
       window.location.href = "index.html";
-      
-    }
-    
-function selecionarModelo(){
 
-  window.location.href = "editor.html";
+}
+  
+function abrirCategoria(categoria){
+
+  localStorage.setItem("categoria", categoria);
+
+  window.location.href = "modelos.html";
 
 }
 
