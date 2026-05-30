@@ -100,5 +100,9 @@ button {
   #nomePreview {
     font-size: 14px;
     top: 100px;
+     
   }
+   
+.login-box button {
+  margin-bottom: 6px;
 }
