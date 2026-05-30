@@ -66,3 +66,109 @@ body{
 #nome{
   text-transform: uppercase;
 }
+/* =========================
+   LAYOUT GERAL
+========================= */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+.login-box {
+  width: 95%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   ÁREA DO CARTÃO
+========================= */
+
+.cartao-area {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#cartao {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* TEXTO EM CIMA DO CARTÃO */
+#nomePreview {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+}
+
+/* =========================
+   MOBILE AJUSTE
+========================= */
+
+@media (max-width: 768px) {
+
+  .login-box {
+    padding: 10px;
+  }
+
+  .cartao-area {
+    max-width: 100%;
+  }
+
+  #nomePreview {
+    font-size: 14px;
+    top: 100px;
+  }
+
+}
