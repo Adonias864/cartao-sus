@@ -129,5 +129,31 @@ label {
   #nomePreview {
     font-size: 14px;
     top: 100px;
+    
   }
+  
+/* =========================
+   BOTÕES PADRÃO (ENTRAR / VOLTAR)
+========================= */
+
+button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #0f172a; /* azul escuro */
+  color: #ffffff; /* texto branco */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+button:hover {
+  transform: scale(1.03);
+  background: #1e293b;
+}
+
+button:active {
+  transform: scale(0.98);
 }
