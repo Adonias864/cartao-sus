@@ -50,15 +50,21 @@ if(categoria === "times"){
 
     <img
       src="modelos/Cartao-SUS-Playstaion.png"
-      width="300">
-
-    <br><br>
-
-    <button onclick="abrirEditor()">
-      Playstation
-    </button>
+      width="300"
+      onclick="confirmarEdicao()"
+      style="cursor:pointer;border-radius:10px;transition:0.3s;">
 
   `;
+
+}
+
+function confirmarEdicao(){
+
+  const ok = confirm("Deseja editar este cartão?");
+
+  if(ok){
+    window.location.href = "editor.html";
+  }
 
 }
 
