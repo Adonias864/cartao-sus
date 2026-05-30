@@ -1,63 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel</title>
-
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
- <div class="login-box">
+<div class="login-box">
 
   <h1>Categorias</h1>
 
-<button class="app-btn" onclick="abrirCategoria('infantil')">
-    🎈 Infantil
-  </button>
+  <button class="app-btn" onclick="abrirCategoria('infantil')">🎈 Infantil</button>
+  <button class="app-btn" onclick="abrirCategoria('times')">⚽ Times</button>
+  <button class="app-btn" onclick="abrirCategoria('femininos')">💖 Femininos</button>
+  <button class="app-btn" onclick="abrirCategoria('gospel')">✝️ Gospel</button>
 
-  <button class="app-btn" onclick="abrirCategoria('times')">
-    ⚽ Times
-  </button>
+  <button class="app-btn sair" onclick="sair()">🚪 Sair</button>
 
-  <button class="app-btn" onclick="abrirCategoria('femininos')">
-    💖 Femininos
-  </button>
+</div>
 
-  <button class="app-btn" onclick="abrirCategoria('gospel')">
-    ✝️ Gospel
-  </button>
+<script>
 
-  <button class="app-btn sair" onclick="sair()">
-    🚪 Sair
-  </button>
-
-  <script>
-
-    if(localStorage.getItem("logado") !== "true"){
-
-      window.location.href = "index.html";
-
+if(localStorage.getItem("logado") !== "true"){
+  window.location.href = "index.html";
 }
-  
+
 function abrirCategoria(categoria){
-
   localStorage.setItem("categoria", categoria);
-
   window.location.href = "modelos.html";
-
 }
 
-    function sair(){
+function sair(){
+  localStorage.removeItem("logado");
+  window.location.href = "index.html";
+}
 
-      localStorage.removeItem("logado");
-
-      window.location.href = "index.html";
-
-    }
-
-  </script>
+</script>
 
 </body>
 </html>
