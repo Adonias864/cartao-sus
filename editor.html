@@ -44,5 +44,24 @@
 
 </div>
 
+<script>
+
+if(localStorage.getItem("logado") !== "true"){
+  window.location.href = "index.html";
+}
+
+if(!localStorage.getItem("modeloSelecionado")){
+  window.location.href = "modelos.html";
+}
+
+const modelo = localStorage.getItem("modeloSelecionado");
+const cartao = document.getElementById("cartao");
+
+if(modelo === "playstation"){
+  cartao.src = "modelos/Cartao-SUS-Playstaion.png";
+}
+
+</script>
+  
 </body>
 </html>
