@@ -1,73 +1,5 @@
-body{
-  margin:0;
-  padding:0;
-  font-family:Arial, sans-serif;
-  background:#0f172a;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-
-.login-box{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  width:320px;
-  box-shadow:0 0 25px rgba(0,0,0,0.3);
-  text-align:center;
-}
-
-.login-box h1{
-  margin-bottom:25px;
-  color:#0f172a;
-}
-
-.login-box input,
-.login-box select{
-  width:100%;
-  padding:14px;
-  margin-bottom:15px;
-  border:none;
-  border-radius:12px;
-  background:#f1f5f9;
-  font-size:16px;
-  box-sizing:border-box;
-}
-
-.login-box button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:12px;
-  background:#2563eb;
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.login-box button:hover{
-  background:#1d4ed8;
-}
-
-#erro{
-  color:red;
-  margin-top:15px;
-}
-
-.login-box label{
-  display:block;
-  text-align:left;
-  margin-bottom:5px;
-  font-weight:bold;
-}
-
-#nome{
-  text-transform: uppercase;
-}
 /* =========================
-   LAYOUT GERAL
+   BASE
 ========================= */
 
 body {
@@ -77,19 +9,26 @@ body {
   background: #f2f2f2;
 }
 
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+
 .login-box {
   width: 95%;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   box-sizing: border-box;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
 /* =========================
-   ÁREA DO CARTÃO
+   CARTÃO
 ========================= */
 
 .cartao-area {
@@ -105,7 +44,7 @@ body {
   border-radius: 10px;
 }
 
-/* TEXTO EM CIMA DO CARTÃO */
+/* TEXTO NO CARTÃO */
 #nomePreview {
   position: absolute;
   top: 120px;
@@ -114,7 +53,6 @@ body {
   font-weight: bold;
   font-size: 16px;
   color: #000;
-  text-align: center;
   white-space: nowrap;
 }
 
@@ -124,10 +62,8 @@ body {
 
 input, select {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
@@ -139,7 +75,7 @@ label {
 }
 
 /* =========================
-   BOTÕES
+   BOTÃO
 ========================= */
 
 button {
@@ -153,22 +89,16 @@ button {
 }
 
 /* =========================
-   MOBILE AJUSTE
+   MOBILE
 ========================= */
 
 @media (max-width: 768px) {
-
   .login-box {
-    padding: 10px;
-  }
-
-  .cartao-area {
-    max-width: 100%;
+    width: 95%;
   }
 
   #nomePreview {
     font-size: 14px;
     top: 100px;
   }
-
 }
