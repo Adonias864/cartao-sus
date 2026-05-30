@@ -106,3 +106,30 @@ button {
 .login-box button {
   margin-bottom: 6px;
 }
+/* BOTÕES ESTILO APP */
+.app-btn {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #f1f5f9;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.app-btn:hover {
+  transform: scale(1.03);
+  background: #e2e8f0;
+}
+
+/* BOTÃO SAIR */
+.sair {
+  background: #ef4444;
+  color: white;
+}
+
+.sair:hover {
+  background: #dc2626;
+}
