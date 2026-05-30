@@ -159,6 +159,6 @@ button:active {
   transform: scale(0.98);
 }
 
-h1, h2, p {
+.login-box {
   text-align: center;
 }
