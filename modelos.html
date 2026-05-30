@@ -35,7 +35,7 @@ if(localStorage.getItem("logado") !== "true"){
 const categoria =
   localStorage.getItem("categoria");
 
-  const areaModelos =
+const areaModelos =
   document.getElementById("areaModelos");
 
 document.getElementById("tituloCategoria")
@@ -56,13 +56,16 @@ if(categoria === "times"){
       Playstation
     </button>
 
+  `;
+
+}
 
 function abrirEditor(){
 
   window.location.href = "editor.html";
 
 }
-  
+
 function voltar(){
 
   window.location.href = "painel.html";
