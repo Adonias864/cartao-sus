@@ -129,9 +129,9 @@ label {
   #nomePreview {
     font-size: 14px;
     top: 100px;
-    
   }
-  
+}
+
 /* =========================
    BOTÕES PADRÃO (ENTRAR / VOLTAR)
 ========================= */
@@ -140,8 +140,8 @@ button {
   padding: 14px;
   border: none;
   border-radius: 12px;
-  background: #0f172a; /* azul escuro */
-  color: #ffffff; /* texto branco */
+  background: #0f172a;
+  color: #ffffff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
