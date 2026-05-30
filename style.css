@@ -62,3 +62,7 @@ body{
   margin-bottom:5px;
   font-weight:bold;
 }
+
+#nome{
+  text-transform: uppercase;
+}
