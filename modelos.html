@@ -14,9 +14,9 @@
 
 <h1 id="tituloCategoria"></h1>
 
-<p>
-Escolha um modelo
-</p>
+<div id="areaModelos"></div>
+
+<br>
 
 <button onclick="voltar()">
 Voltar
@@ -35,10 +35,35 @@ if(localStorage.getItem("logado") !== "true"){
 const categoria =
   localStorage.getItem("categoria");
 
+  const areaModelos =
+  document.getElementById("areaModelos");
+
 document.getElementById("tituloCategoria")
 .innerText =
 categoria.toUpperCase();
 
+if(categoria === "times"){
+
+  areaModelos.innerHTML = `
+
+    <img
+      src="modelos/Cartao-SUS-Playstaion.png"
+      width="300">
+
+    <br><br>
+
+    <button onclick="abrirEditor()">
+      Playstation
+    </button>
+
+  `;
+
+function abrirEditor(){
+
+  window.location.href = "editor.html";
+
+}
+  
 function voltar(){
 
   window.location.href = "painel.html";
