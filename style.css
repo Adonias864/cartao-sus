@@ -48,13 +48,13 @@ body {
   color: #ffffff !important;
 }
 
-.sair {
-  background: #ef4444;
-  color: white;
+button.sair {
+  background: #ef4444 !important;
+  color: #ffffff !important;
 }
 
-.sair:hover {
-  background: #dc2626;
+button.sair:hover {
+  background: #dc2626 !important;
 }
 
 /* =========================
