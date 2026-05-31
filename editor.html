@@ -70,7 +70,8 @@ nomeInput.addEventListener("input", () => {
 const sexoInput = document.getElementById("sexo");
 
 sexoInput.addEventListener("change", () => {
-  document.getElementById("sexoPreview").innerText = sexoInput.value;
+  document.getElementById("sexoPreview").innerText =
+"Sexo: " + sexoInput.value;
 });
 
 /* DATA */
@@ -89,7 +90,8 @@ document.getElementById("data").addEventListener("input", function () {
   }
 
   this.value = v;
-  document.getElementById("dataPreview").innerText = v;
+  document.getElementById("dataPreview").innerText =
+"Data Nasc.: " + v;
 
 });
 
@@ -105,7 +107,8 @@ document.getElementById("cpf").addEventListener("input", function () {
   v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 
   this.value = v;
-  document.getElementById("cpfPreview").innerText = v;
+  document.getElementById("cpfPreview").innerText =
+"CPF: " + v;
 
 });
 
@@ -121,7 +124,8 @@ document.getElementById("cns").addEventListener("input", function () {
   v = v.replace(/(\d{3}) (\d{4}) (\d{4})(\d)/, "$1 $2 $3 $4");
 
   this.value = v;
-  document.getElementById("cnsPreview").innerText = v;
+  document.getElementById("cnsPreview").innerText =
+"CNS: " + v;
 
 });
 
