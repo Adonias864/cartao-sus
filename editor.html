@@ -62,38 +62,58 @@ nomeInput.addEventListener("input", () => {
   nomePreview.innerText = nomeInput.value.toUpperCase();
 });
 
-  // DATA: DD/MM/AAAA
+
+// DATA: DD/MM/AAAA
 document.getElementById("data").addEventListener("input", function () {
+
   let v = this.value.replace(/\D/g, "");
 
-  if (v.length > 2) v = v.replace(/(\d{2})(\d)/, "$1/$2");
-  if (v.length > 4) v = v.replace(/(\d{2})(\d{2})(\d)/, "$1/$2/$3");
+  v = v.substring(0, 8);
+
+  if(v.length > 2){
+    v = v.replace(/(\d{2})(\d)/, "$1/$2");
+  }
+
+  if(v.length > 4){
+    v = v.replace(/(\d{2})\/(\d{2})(\d)/, "$1/$2/$3");
+  }
 
   this.value = v;
+
 });
+
 
 // CPF: 000.000.000-00
 document.getElementById("cpf").addEventListener("input", function () {
+
   let v = this.value.replace(/\D/g, "");
 
+  v = v.substring(0, 11);
+
   v = v.replace(/(\d{3})(\d)/, "$1.$2");
-  v = v.replace(/(\d{3})(\d)/, "$1.$2");
-  v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  v = v.replace(/(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
+  v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 
   this.value = v;
+
 });
+
 
 // CNS: 000 0000 0000 0000
 document.getElementById("cns").addEventListener("input", function () {
+
   let v = this.value.replace(/\D/g, "");
 
+  v = v.substring(0, 15);
+
   v = v.replace(/(\d{3})(\d)/, "$1 $2");
-  v = v.replace(/(\d{4})(\d)/, "$1 $2");
-  v = v.replace(/(\d{4})(\d)/, "$1 $2");
+  v = v.replace(/(\d{3}) (\d{4})(\d)/, "$1 $2 $3");
+  v = v.replace(/(\d{3}) (\d{4}) (\d{4})(\d)/, "$1 $2 $3 $4");
 
   this.value = v;
+
 });
-  
+
 </script>
 
 </body>
