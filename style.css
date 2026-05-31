@@ -83,7 +83,7 @@ button.sair:hover {
 }
 
 /* POSIÇÕES */
-.nome { top: 120px; left: 40px; }
+.nome { top: 100px; left: 40px; }
 .data { top: 150px; left: 40px; }
 .sexo { top: 180px; left: 40px; }
 .cns  { top: 210px; left: 40px; }
