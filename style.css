@@ -23,18 +23,20 @@ body {
   background: white;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 /* =========================
-   BOTÕES ESTILO APP
+   BOTÕES
 ========================= */
 
+button,
 .app-btn {
   padding: 14px;
   border: none;
   border-radius: 12px;
-  background: #0f172a !important; /* azul escuro FORÇADO */
-  color: #ffffff !important;      /* texto branco FORÇADO */
+  background: #0f172a;
+  color: #ffffff;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -42,15 +44,21 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
+button:hover,
 .app-btn:hover {
   transform: scale(1.03);
-  background: #1e293b !important;
-  color: #ffffff !important;
+  background: #1e293b;
 }
+
+button:active,
+.app-btn:active {
+  transform: scale(0.98);
+}
+
+/* BOTÃO SAIR */
 
 button.sair {
   background: #ef4444 !important;
-  color: #ffffff !important;
 }
 
 button.sair:hover {
@@ -58,7 +66,7 @@ button.sair:hover {
 }
 
 /* =========================
-   CARTÃO EDITOR
+   CARTÃO
 ========================= */
 
 .cartao-area {
@@ -74,38 +82,65 @@ button.sair:hover {
   border-radius: 10px;
 }
 
-/* CAMPOS SOBRE O CARTÃO */
+/* =========================
+   CAMPOS SOBRE O CARTÃO
+========================= */
+
 .campo {
   position: absolute;
-  font-weight: bold;
-  font-size: 10px;
   color: #000;
+  font-weight: bold;
+  z-index: 999;
 }
 
-/* POSIÇÕES */
-.nome { top: 50px; left: 40px; }
-.data { top: 150px; left: 40px; }
-.sexo { top: 180px; left: 40px; }
-.cns  { top: 210px; left: 40px; }
-.cpf  { top: 240px; left: 40px; }
+/* NOME */
 
-/* PREVIEW NOME SIMPLES */
-#nomePreview {
-  position: absolute;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  font-size: 16px;
-  color: #000;
-  white-space: nowrap;
+.nome {
+  top: 65px;
+  left: 185px;
+  width: 180px;
+  text-align: center;
+  font-size: 8px;
+}
+
+/* DATA */
+
+.data {
+  top: 95px;
+  left: 185px;
+  font-size: 6px;
+}
+
+/* SEXO */
+
+.sexo {
+  top: 95px;
+  left: 305px;
+  font-size: 6px;
+}
+
+/* CNS */
+
+.cns {
+  top: 116px;
+  left: 185px;
+  font-size: 6px;
+}
+
+/* CPF */
+
+.cpf {
+  top: 140px;
+  left: 185px;
+  font-size: 8px;
 }
 
 /* =========================
    INPUTS
 ========================= */
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 12px;
   border-radius: 8px;
@@ -114,7 +149,6 @@ input, select {
 
 label {
   font-weight: bold;
-  margin-top: 10px;
   display: block;
 }
 
@@ -123,74 +157,9 @@ label {
 ========================= */
 
 @media (max-width: 768px) {
+
   .login-box {
     width: 95%;
   }
 
-  #nomePreview {
-    font-size: 14px;
-    top: 100px;
-  }
-}
-
-/* =========================
-   BOTÕES PADRÃO (ENTRAR / VOLTAR)
-========================= */
-
-button {
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  background: #0f172a;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-
-button:hover {
-  transform: scale(1.03);
-  background: #1e293b;
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
-.login-box {
-  text-align: center;
-}
-
-.campo {
-  position: absolute;
-  color: #000;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.nome {
-  top: 120px;
-  left: 40px;
-}
-
-.data {
-  top: 145px;
-  left: 40px;
-}
-
-.sexo {
-  top: 170px;
-  left: 40px;
-}
-
-.cns {
-  top: 195px;
-  left: 40px;
-}
-
-.cpf {
-  top: 220px;
-  left: 40px;
 }
