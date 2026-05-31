@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Halter';
   src: url('HALTER__.ttf') format('truetype');
+}
 
 * {
   box-sizing: border-box;
