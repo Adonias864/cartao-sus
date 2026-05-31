@@ -55,8 +55,7 @@ if(!localStorage.getItem("modeloSelecionado")){
 const modelo = localStorage.getItem("modeloSelecionado");
 const cartao = document.getElementById("cartao");
 
-if(modelo === "playstation"){
-  cartao.src = "modelos/Cartao-SUS-Playstaion.png";
+cartao.src = "modelos/" + modelo;
 }
 
 /* NOME */
