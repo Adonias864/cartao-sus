@@ -92,7 +92,6 @@ button.sair:hover {
 ========================= */
 
 .campo {
-  .campo {
   position: absolute;
   color: #000;
   z-index: 999;
@@ -100,8 +99,7 @@ button.sair:hover {
 }
 
 /* NOME */
-
-.nome{
+.nome {
   top: 25px;
   left: 225px;
   width: 150px;
@@ -109,30 +107,33 @@ button.sair:hover {
   font-size: 8px;
 }
 
-.data{
+/* DATA */
+.data {
   top: 62px;
   left: 215px;
   font-size: 7px;
 }
 
-.sexo{
+/* SEXO */
+.sexo {
   top: 62px;
   left: 325px;
   font-size: 7px;
 }
 
-.cns{
+/* CNS */
+.cns {
   top: 86px;
   left: 215px;
   font-size: 7px;
 }
 
-.cpf{
+/* CPF */
+.cpf {
   top: 112px;
   left: 215px;
   font-size: 8px;
 }
-
 /* =========================
    INPUTS
 ========================= */
