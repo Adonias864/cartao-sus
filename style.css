@@ -162,3 +162,35 @@ button:active {
 .login-box {
   text-align: center;
 }
+
+.campo {
+  position: absolute;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.nome {
+  top: 120px;
+  left: 40px;
+}
+
+.data {
+  top: 145px;
+  left: 40px;
+}
+
+.sexo {
+  top: 170px;
+  left: 40px;
+}
+
+.cns {
+  top: 195px;
+  left: 40px;
+}
+
+.cpf {
+  top: 220px;
+  left: 40px;
+}
