@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Halter';
-  src: url('Halter-Regular.ttf') format('truetype');
+  src: url('HALTER__.ttf') format('truetype');
 }
 
 * {
@@ -92,11 +92,11 @@ button.sair:hover {
 ========================= */
 
 .campo {
-  position:absolute;
-  color:#000;
-  font-weight:bold;
-  z-index:999;
-  line-height:1;
+  .campo {
+  position: absolute;
+  color: #000;
+  z-index: 999;
+  font-family: 'Halter';
 }
 
 /* NOME */
