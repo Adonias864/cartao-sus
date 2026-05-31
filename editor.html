@@ -59,6 +59,7 @@ if(modelo === "playstation"){
   cartao.src = "modelos/Cartao-SUS-Playstaion.png";
 }
 
+/* NOME */
 const nomeInput = document.getElementById("nome");
 const nomePreview = document.getElementById("nomePreview");
 
@@ -66,28 +67,14 @@ nomeInput.addEventListener("input", () => {
   nomePreview.innerText = nomeInput.value.toUpperCase();
 });
 
-  const dataInput = document.getElementById("data");
+/* SEXO */
 const sexoInput = document.getElementById("sexo");
-const cnsInput = document.getElementById("cns");
-const cpfInput = document.getElementById("cpf");
-
-dataInput.addEventListener("input", function () {
-  document.getElementById("dataPreview").innerText = this.value;
-});
 
 sexoInput.addEventListener("change", () => {
   document.getElementById("sexoPreview").innerText = sexoInput.value;
 });
 
-cnsInput.addEventListener("input", function () {
-  document.getElementById("cnsPreview").innerText = this.value;
-});
-
-cpfInput.addEventListener("input", function () {
-  document.getElementById("cpfPreview").innerText = this.value;
-});
-
-// DATA: DD/MM/AAAA
+/* DATA */
 document.getElementById("data").addEventListener("input", function () {
 
   let v = this.value.replace(/\D/g, "");
@@ -103,11 +90,11 @@ document.getElementById("data").addEventListener("input", function () {
   }
 
   this.value = v;
+  document.getElementById("dataPreview").innerText = v;
 
 });
 
-
-// CPF: 000.000.000-00
+/* CPF */
 document.getElementById("cpf").addEventListener("input", function () {
 
   let v = this.value.replace(/\D/g, "");
@@ -119,11 +106,11 @@ document.getElementById("cpf").addEventListener("input", function () {
   v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 
   this.value = v;
+  document.getElementById("cpfPreview").innerText = v;
 
 });
 
-
-// CNS: 000 0000 0000 0000
+/* CNS */
 document.getElementById("cns").addEventListener("input", function () {
 
   let v = this.value.replace(/\D/g, "");
@@ -135,6 +122,7 @@ document.getElementById("cns").addEventListener("input", function () {
   v = v.replace(/(\d{3}) (\d{4}) (\d{4})(\d)/, "$1 $2 $3 $4");
 
   this.value = v;
+  document.getElementById("cnsPreview").innerText = v;
 
 });
 
