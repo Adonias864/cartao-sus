@@ -96,6 +96,7 @@ button.sair:hover {
   color: #000;
   z-index: 999;
   font-family: 'Halter';
+  letter-spacing: -0.3px;
 }
 
 /* NOME */
