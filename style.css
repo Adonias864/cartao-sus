@@ -87,51 +87,44 @@ button.sair:hover {
 ========================= */
 
 .campo {
-  position: absolute;
-  color: #000;
-  font-weight: bold;
-  z-index: 999;
+  position:absolute;
+  color:#000;
+  font-weight:bold;
+  z-index:999;
+  line-height:1;
 }
 
 /* NOME */
 
-.nome {
-  top: 65px;
-  left: 185px;
-  width: 180px;
+.nome{
+  top: 36px;
+  left: 215px;
+  width: 150px;
   text-align: center;
   font-size: 8px;
 }
 
-/* DATA */
-
-.data {
-  top: 95px;
-  left: 185px;
-  font-size: 6px;
+.data{
+  top: 62px;
+  left: 215px;
+  font-size: 7px;
 }
 
-/* SEXO */
-
-.sexo {
-  top: 95px;
-  left: 305px;
-  font-size: 6px;
+.sexo{
+  top: 62px;
+  left: 325px;
+  font-size: 7px;
 }
 
-/* CNS */
-
-.cns {
-  top: 116px;
-  left: 185px;
-  font-size: 6px;
+.cns{
+  top: 86px;
+  left: 215px;
+  font-size: 7px;
 }
 
-/* CPF */
-
-.cpf {
-  top: 140px;
-  left: 185px;
+.cpf{
+  top: 112px;
+  left: 215px;
   font-size: 8px;
 }
 
