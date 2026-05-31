@@ -71,20 +71,20 @@ const sexoInput = document.getElementById("sexo");
 const cnsInput = document.getElementById("cns");
 const cpfInput = document.getElementById("cpf");
 
-dataInput.addEventListener("input", () => {
-  document.getElementById("dataPreview").innerText = dataInput.value;
+dataInput.addEventListener("input", function () {
+  document.getElementById("dataPreview").innerText = this.value;
 });
 
 sexoInput.addEventListener("change", () => {
   document.getElementById("sexoPreview").innerText = sexoInput.value;
 });
 
-cnsInput.addEventListener("input", () => {
-  document.getElementById("cnsPreview").innerText = cnsInput.value;
+cnsInput.addEventListener("input", function () {
+  document.getElementById("cnsPreview").innerText = this.value;
 });
 
-cpfInput.addEventListener("input", () => {
-  document.getElementById("cpfPreview").innerText = cpfInput.value;
+cpfInput.addEventListener("input", function () {
+  document.getElementById("cpfPreview").innerText = this.value;
 });
 
 // DATA: DD/MM/AAAA
