@@ -167,11 +167,6 @@ function adicionarCard() {
   cns.value = "";
   cpf.value = "";
 
-  nomePreview.innerText = c.nome.toUpperCase();
-dataPreview.innerText = "Data Nasc.: " + c.data;
-sexoPreview.innerText = "Sexo: " + c.sexo;
-cnsPreview.innerText = "CNS: " + c.cns;
-cpfPreview.innerText = "CPF: " + c.cpf;
 }
 
 // ================= PDF =================
@@ -187,23 +182,27 @@ async function gerarPDF() {
 
   for (let c of cards) {
 
-    carregarModelo(c.modelo);
+  carregarModelo(c.modelo);
 
-    nomePreview.innerText = c.nome;
-    dataPreview.innerText = c.data;
-    sexoPreview.innerText = c.sexo;
-    cnsPreview.innerText = c.cns;
-    cpfPreview.innerText = c.cpf;
+  nomePreview.innerText = c.nome.toUpperCase();
+  dataPreview.innerText = "Data Nasc.: " + c.data;
+  sexoPreview.innerText = "Sexo: " + c.sexo;
+  cnsPreview.innerText = "CNS: " + c.cns;
+  cpfPreview.innerText = "CPF: " + c.cpf;
 
-    await new Promise(r => setTimeout(r, 300));
+  await new Promise(r => setTimeout(r, 300));
 
-    const canvas = await html2canvas(area, { scale: 3 });
-    const img = canvas.toDataURL("image/png");
+  const canvas = await html2canvas(area, {
+    scale: 3,
+    useCORS: true
+  });
 
-    pdf.addImage(img, "PNG", 10, y, 180, 55);
+  const img = canvas.toDataURL("image/png");
 
-    y += 60;
-  }
+  pdf.addImage(img, "PNG", 10, y, 180, 50);
+
+  y += 50;
+}
 
   pdf.save("cartoes.pdf");
 
