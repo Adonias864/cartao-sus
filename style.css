@@ -171,23 +171,23 @@ select {
   }
 
   .nome {
-    font-size: 0.36px;
+    font-size: 4px;
   }
 
   .data {
-    font-size: 0.3px;
+    font-size: 3px;
   }
 
   .sexo {
-    font-size: 0.33px;
+    font-size: 3px;
   }
 
   .cns {
-    font-size: 0.35px;
+    font-size: 4;
   }
 
   .cpf {
-    font-size: 0.54px;
+    font-size: 6px;
   }
 
 }
