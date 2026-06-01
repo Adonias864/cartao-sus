@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Editor</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,15 +10,15 @@
 
   <div class="cartao-area">
 
-  <img id="cartao" crossorigin="anonymous">
+    <img id="cartao" crossorigin="anonymous">
 
-  <div id="nomePreview" class="campo nome"></div>
-  <div id="dataPreview" class="campo data"></div>
-  <div id="sexoPreview" class="campo sexo"></div>
-  <div id="cnsPreview" class="campo cns"></div>
-  <div id="cpfPreview" class="campo cpf"></div>
+    <div id="nomePreview" class="campo nome"></div>
+    <div id="dataPreview" class="campo data"></div>
+    <div id="sexoPreview" class="campo sexo"></div>
+    <div id="cnsPreview" class="campo cns"></div>
+    <div id="cpfPreview" class="campo cpf"></div>
 
-</div>
+  </div>
 
   <h2>Dados</h2>
 
@@ -38,71 +33,68 @@
   <input id="cns" placeholder="CNS: 000 0000 0000 0000">
   <input id="cpf" placeholder="CPF: 000.000.000-00">
 
-<button onclick="adicionarCard()">Adicionar Mais Cartões</button>
-<button onclick="gerarPDF()">Gerar PDF</button>
+  <button onclick="adicionarCard()">Adicionar Card</button>
+  <button onclick="gerarPDF()">Gerar PDF</button>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script>
 
 let cards = [];
-  
-if(localStorage.getItem("logado") !== "true"){
+
+// 🔥 proteção login
+if (localStorage.getItem("logado") !== "true") {
   window.location.href = "index.html";
 }
 
-if(!localStorage.getItem("modeloSelecionado")){
+if (!localStorage.getItem("modeloSelecionado")) {
   window.location.href = "modelos.html";
 }
 
+// modelo inicial
 const modelo = localStorage.getItem("modeloSelecionado");
 const cartao = document.getElementById("cartao");
 
-cartao.src = "modelos/" + modelo;
+function carregarModelo(src) {
+  cartao.src = src;
+}
 
+carregarModelo("modelos/" + modelo);
 
-/* NOME */
-const nomeInput = document.getElementById("nome");
-const nomePreview = document.getElementById("nomePreview");
+// =====================
+// PREVIEW AO DIGITAR
+// =====================
 
-nomeInput.addEventListener("input", () => {
-  nomePreview.innerText = nomeInput.value.toUpperCase();
+document.getElementById("nome").addEventListener("input", () => {
+  document.getElementById("nomePreview").innerText =
+    document.getElementById("nome").value.toUpperCase();
 });
 
-/* SEXO */
-const sexoInput = document.getElementById("sexo");
-
-sexoInput.addEventListener("change", () => {
+document.getElementById("sexo").addEventListener("change", () => {
   document.getElementById("sexoPreview").innerText =
-"Sexo: " + sexoInput.value;
+    "Sexo: " + document.getElementById("sexo").value;
 });
 
-/* DATA */
 document.getElementById("data").addEventListener("input", function () {
 
   let v = this.value.replace(/\D/g, "");
-
   v = v.substring(0, 8);
 
-  if(v.length > 2){
-    v = v.replace(/(\d{2})(\d)/, "$1/$2");
-  }
-
-  if(v.length > 4){
-    v = v.replace(/(\d{2})\/(\d{2})(\d)/, "$1/$2/$3");
-  }
+  if (v.length > 2) v = v.replace(/(\d{2})(\d)/, "$1/$2");
+  if (v.length > 4) v = v.replace(/(\d{2})\/(\d{2})(\d)/, "$1/$2/$3");
 
   this.value = v;
-  document.getElementById("dataPreview").innerText =
-"Data Nasc.: " + v;
 
+  document.getElementById("dataPreview").innerText =
+    "Data Nasc.: " + v;
 });
 
-/* CPF */
 document.getElementById("cpf").addEventListener("input", function () {
 
   let v = this.value.replace(/\D/g, "");
-
   v = v.substring(0, 11);
 
   v = v.replace(/(\d{3})(\d)/, "$1.$2");
@@ -110,12 +102,11 @@ document.getElementById("cpf").addEventListener("input", function () {
   v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 
   this.value = v;
-  document.getElementById("cpfPreview").innerText =
-"CPF: " + v;
 
+  document.getElementById("cpfPreview").innerText =
+    "CPF: " + v;
 });
 
-/* CNS */
 document.getElementById("cns").addEventListener("input", function () {
 
   let v = this.value.replace(/\D/g, "");
@@ -126,26 +117,29 @@ document.getElementById("cns").addEventListener("input", function () {
   v = v.replace(/(\d{3}) (\d{4}) (\d{4})(\d)/, "$1 $2 $3 $4");
 
   this.value = v;
-  document.getElementById("cnsPreview").innerText = "CNS: " + v;
 
+  document.getElementById("cnsPreview").innerText =
+    "CNS: " + v;
 });
 
-  function adicionarCard() {
+// =====================
+// ADICIONAR CARD
+// =====================
+
+function adicionarCard() {
 
   if (cards.length >= 5) {
     alert("Limite de 5 cartões!");
     return;
   }
 
- const card = {
-  nome: document.getElementById("nome").value,
-  data: document.getElementById("data").value,
-  sexo: document.getElementById("sexo").value,
-  cns: document.getElementById("cns").value,
-  cpf: document.getElementById("cpf").value,
-  modelo: document.getElementById("cartao").src
-};
-    
+  const card = {
+    nome: document.getElementById("nome").value,
+    data: document.getElementById("data").value,
+    sexo: document.getElementById("sexo").value,
+    cns: document.getElementById("cns").value,
+    cpf: document.getElementById("cpf").value,
+    modelo: cartao.src
   };
 
   cards.push(card);
@@ -153,18 +147,20 @@ document.getElementById("cns").addEventListener("input", function () {
   alert("Card adicionado! (" + cards.length + "/5)");
 
   limparCampos();
-    
 }
 
-  function limparCampos() {
+function limparCampos() {
   document.getElementById("nome").value = "";
   document.getElementById("data").value = "";
   document.getElementById("cns").value = "";
   document.getElementById("cpf").value = "";
-    
 }
 
-  async function gerarPDF() {
+// =====================
+// GERAR PDF
+// =====================
+
+async function gerarPDF() {
 
   if (cards.length === 0) {
     alert("Adicione pelo menos 1 card!");
@@ -188,24 +184,29 @@ document.getElementById("cns").addEventListener("input", function () {
   let y = 10;
   const gap = 3;
 
-  const cartao = document.querySelector(".cartao-area");
+  const cartaoArea = document.querySelector(".cartao-area");
 
   for (let i = 0; i < cards.length; i++) {
 
-    const card = cards[i];
+    const c = cards[i];
 
-    // 🔥 força exatamente o formato correto
-    document.getElementById("nomePreview").innerText = card.nome.toUpperCase();
-    document.getElementById("dataPreview").innerText = "Data Nasc.: " + card.data;
-    document.getElementById("sexoPreview").innerText = "Sexo: " + card.sexo;
-    document.getElementById("cnsPreview").innerText = "CNS: " + card.cns;
-    document.getElementById("cpfPreview").innerText = "CPF: " + card.cpf;
+    document.getElementById("nomePreview").innerText = c.nome.toUpperCase();
+    document.getElementById("dataPreview").innerText = "Data Nasc.: " + c.data;
+    document.getElementById("sexoPreview").innerText = "Sexo: " + c.sexo;
+    document.getElementById("cnsPreview").innerText = "CNS: " + c.cns;
+    document.getElementById("cpfPreview").innerText = "CPF: " + c.cpf;
 
-    document.getElementById("cartao").src = card.modelo;
+    carregarModelo(c.modelo);
 
-    await new Promise(resolve => setTimeout(resolve, 200));
+    await new Promise(resolve => {
+      const img = document.getElementById("cartao");
+      if (img.complete && img.naturalWidth > 0) return resolve();
+      img.onload = () => resolve();
+    });
 
-    const canvas = await html2canvas(cartao, {
+    await new Promise(resolve => setTimeout(resolve, 400));
+
+    const canvas = await html2canvas(cartaoArea, {
       scale: 3,
       useCORS: true
     });
@@ -219,10 +220,8 @@ document.getElementById("cns").addEventListener("input", function () {
 
   pdf.save("cartoes.pdf");
 }
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-  
+</script>
+
 </body>
 </html>
