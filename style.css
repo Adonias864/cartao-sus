@@ -128,10 +128,10 @@ button.sair:hover {
 
 .cns {
   position: absolute;
-  top: 40%;
-  left: 58%;
+  top: 35%;
+  left: 70%;
   transform: translateX(-50%);
-  font-size: 0.65rem;
+  font-size: 0.3rem;
 }
 
 .cpf {
