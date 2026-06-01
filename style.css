@@ -103,7 +103,7 @@ button.sair:hover {
 .nome {
   position: absolute;
   top: 20%;
-  left: 60%;
+  left: 70%;
   transform: translateX(-50%);
   width: 45%;
   text-align: center;
