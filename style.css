@@ -139,7 +139,6 @@ button.sair:hover {
   top: 45%;
   left: 75%;
   transform: translateX(-50%);
-  text-align: center;
   font-size: 0.5rem;
 }
 
