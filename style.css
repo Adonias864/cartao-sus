@@ -107,7 +107,7 @@ button.sair:hover {
   transform: translateX(-50%);
   width: 45%;
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 0.3rem;
 }
 
 .data {
