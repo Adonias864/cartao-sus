@@ -28,6 +28,8 @@ Voltar
 
 <script>
 
+let modelosSelecionados = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
+  
 if(localStorage.getItem("logado") !== "true"){
   window.location.href = "index.html";
 }
@@ -80,12 +82,13 @@ function fecharModal(){
 
 }
   
-function selecionarModelo(modelo){
+function selecionarModelo(modelo) {
 
-  localStorage.setItem("modeloSelecionado", modelo);
+  modelosSelecionados.push(modelo);
+
+  localStorage.setItem("modelosSelecionados", JSON.stringify(modelosSelecionados));
 
   document.getElementById("modalConfirm").style.display = "flex";
-
 }
 </script>
 
