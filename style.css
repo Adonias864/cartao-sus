@@ -154,9 +154,7 @@ select {
    MOBILE (CORRIGIDO DE VERDADE)
 ========================= */
 
-@media (max-width: 600px) {
-
-  .cartao-area {
+.cartao-area {
     width: 100%;
     max-width: 400px;
     margin: 20px auto;
@@ -164,28 +162,34 @@ select {
     transform-origin: top center;
   }
 
-  /* 🔒 trava texto dentro do layout original */
+  /* BASE DO TEXTO */
   .campo {
     font-size: 10px;
     line-height: 1;
+    letter-spacing: -0.8px;
+    white-space: nowrap;
   }
 
+  /* NOME (maior destaque) */
   .nome {
-    font-size: 9px;
+    font-size: 8px;
   }
 
+  /* DATA / SEXO */
   .data {
-    font-size: 3px;
+    font-size: 7px;
   }
 
   .sexo {
-    font-size: 3px;
+    font-size: 7px;
   }
 
+  /* CNS */
   .cns {
-    font-size: 4px;
+    font-size: 8px;
   }
 
+  /* CPF */
   .cpf {
     font-size: 9px;
   }
