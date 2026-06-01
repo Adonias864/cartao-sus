@@ -57,7 +57,7 @@ if (localStorage.getItem("logado") !== "true") {
   window.location.href = "index.html";
 }
 
-// modelo
+// modelo inicial
 const modelo = localStorage.getItem("modeloSelecionado");
 const cartao = document.getElementById("cartao");
 
@@ -130,7 +130,7 @@ document.getElementById("cns").addEventListener("input", function () {
 });
 
 // =====================
-// ADD CARD
+// ADD CARD (CORRIGIDO)
 // =====================
 
 function adicionarCard() {
@@ -146,6 +146,8 @@ function adicionarCard() {
     sexo: document.getElementById("sexo").value,
     cns: document.getElementById("cns").value,
     cpf: document.getElementById("cpf").value,
+
+    // 🔥 CORRETO: salva o modelo atual REAL
     modelo: cartao.src
   };
 
@@ -164,7 +166,7 @@ function limparCampos() {
 }
 
 // =====================
-// PDF
+// PDF (CORRIGIDO)
 // =====================
 
 async function gerarPDF() {
