@@ -156,46 +156,31 @@ select {
 
 @media (max-width: 600px) {
 
-  body {
-    padding: 10px;
-  }
-
-  .login-box {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    border-radius: 0;
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  input,
-  select,
-  button {
-    font-size: 18px;
-    padding: 14px;
-  }
-
-  /* 🔥 AGORA SIM: CARTÃO REALMENTE MAIOR */
-  .cartao-area {
-    width: 100%;
-    max-width: 500px; /* 🔥 aumenta o espaço real */
-    margin: 20px auto;
-  }
-
-  #cartao {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* 🔥 CAMPOS MAIS VISÍVEIS */
+  /* impede texto de crescer fora do cartão */
   .campo {
-  font-size: clamp(10px, 2.2vw, 14px);
+    font-size: 12px !important; /* força base menor */
+    transform: scale(1) !important;
+    white-space: nowrap; /* impede quebra de linha */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ajustes finos por campo (proporção real) */
+  .nome {
+    font-size: 14px !important;
+    max-width: 180px;
+  }
+
+  .data,
+  .sexo {
+    font-size: 12px !important;
+  }
+
+  .cns {
+    font-size: 12px !important;
+  }
+
+  .cpf {
+    font-size: 13px !important;
+  }
 }
