@@ -48,7 +48,7 @@
 
 <script>
 
-let cards = [];
+let cards = JSON.parse(localStorage.getItem("cards")) || [];
 
 // login
 if (localStorage.getItem("logado") !== "true") {
@@ -137,6 +137,9 @@ function adicionarCard() {
   }
 
   cards.push({
+    
+    localStorage.setItem("cards", JSON.stringify(cards));
+  
     nome: nome.value,
     data: data.value,
     sexo: sexo.value,
@@ -182,6 +185,10 @@ async function gerarPDF() {
   }
 
   pdf.save("cartoes.pdf");
+
+  localStorage.removeItem("cards");
+localStorage.removeItem("modelosSelecionados");
+  
 }
 
 </script>
