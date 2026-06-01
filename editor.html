@@ -12,36 +12,34 @@
 
 <div class="login-box">
 
-  <h1>Editor de Cartão</h1>
+<h1>Editor de Cartão</h1>
 
-  <div class="cartao-area">
+<div class="cartao-area">
+  <img id="cartao" crossorigin="anonymous">
 
-    <img id="cartao" crossorigin="anonymous">
+  <div id="nomePreview" class="campo nome"></div>
+  <div id="dataPreview" class="campo data"></div>
+  <div id="sexoPreview" class="campo sexo"></div>
+  <div id="cnsPreview" class="campo cns"></div>
+  <div id="cpfPreview" class="campo cpf"></div>
+</div>
 
-    <div id="nomePreview" class="campo nome"></div>
-    <div id="dataPreview" class="campo data"></div>
-    <div id="sexoPreview" class="campo sexo"></div>
-    <div id="cnsPreview" class="campo cns"></div>
-    <div id="cpfPreview" class="campo cpf"></div>
+<h2>Dados</h2>
 
-  </div>
+<input id="nome" placeholder="Nome Completo">
+<input id="data" placeholder="Data de Nasc.: DD/MM/AAAA">
 
-  <h2>Dados</h2>
+<select id="sexo">
+  <option value="M">M</option>
+  <option value="F">F</option>
+</select>
 
-  <input id="nome" placeholder="Nome Completo">
-  <input id="data" placeholder="Data de Nasc.: DD/MM/AAAA">
+<input id="cns" placeholder="CNS">
+<input id="cpf" placeholder="CPF">
 
-  <select id="sexo">
-    <option value="M">M</option>
-    <option value="F">F</option>
-  </select>
-
-  <input id="cns" placeholder="CNS: 000 0000 0000 0000">
-  <input id="cpf" placeholder="CPF: 000.000.000-00">
-
-  <button onclick="adicionarCard()">Adicionar Card</button>
-  <button onclick="trocarModelo()">Trocar Modelo</button>
-  <button onclick="gerarPDF()">Gerar PDF</button>
+<button onclick="adicionarCard()">Adicionar Card</button>
+<button onclick="trocarModelo()">Trocar Modelo</button>
+<button onclick="gerarPDF()">Gerar PDF</button>
 
 </div>
 
@@ -57,81 +55,62 @@ if (localStorage.getItem("logado") !== "true") {
   window.location.href = "index.html";
 }
 
-// modelo inicial
-const modelo = localStorage.getItem("modeloSelecionado");
+// 🔥 pega último modelo correto
+let modelos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
+
+let modeloAtual = localStorage.getItem("modeloSelecionado");
+
+// fallback seguro
+if (!modeloAtual && modelos.length > 0) {
+  modeloAtual = modelos[modelos.length - 1];
+}
+
 const cartao = document.getElementById("cartao");
 
 function carregarModelo(src) {
-  cartao.src = src;
+  cartao.src = "modelos/" + src;
 }
+
+carregarModelo(modeloAtual);
 
 function trocarModelo() {
   window.location.href = "modelos.html";
 }
 
-carregarModelo("modelos/" + modelo);
+// ================= PREVIEW =================
 
-// =====================
-// PREVIEW
-// =====================
+document.getElementById("nome").oninput = e =>
+  document.getElementById("nomePreview").innerText = e.target.value.toUpperCase();
 
-document.getElementById("nome").addEventListener("input", () => {
-  document.getElementById("nomePreview").innerText =
-    document.getElementById("nome").value.toUpperCase();
-});
+document.getElementById("sexo").onchange = e =>
+  document.getElementById("sexoPreview").innerText = "Sexo: " + e.target.value;
 
-document.getElementById("sexo").addEventListener("change", () => {
-  document.getElementById("sexoPreview").innerText =
-    "Sexo: " + document.getElementById("sexo").value;
-});
-
-document.getElementById("data").addEventListener("input", function () {
-
-  let v = this.value.replace(/\D/g, "");
-  v = v.substring(0, 8);
-
+document.getElementById("data").oninput = function () {
+  let v = this.value.replace(/\D/g, "").substring(0, 8);
   if (v.length > 2) v = v.replace(/(\d{2})(\d)/, "$1/$2");
   if (v.length > 4) v = v.replace(/(\d{2})\/(\d{2})(\d)/, "$1/$2/$3");
 
   this.value = v;
+  document.getElementById("dataPreview").innerText = "Data Nasc.: " + v;
+};
 
-  document.getElementById("dataPreview").innerText =
-    "Data Nasc.: " + v;
-});
-
-document.getElementById("cpf").addEventListener("input", function () {
-
-  let v = this.value.replace(/\D/g, "");
-  v = v.substring(0, 11);
-
+document.getElementById("cpf").oninput = function () {
+  let v = this.value.replace(/\D/g, "").substring(0, 11);
   v = v.replace(/(\d{3})(\d)/, "$1.$2");
   v = v.replace(/(\d{3})\.(\d{3})(\d)/, "$1.$2.$3");
   v = v.replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/, "$1.$2.$3-$4");
 
   this.value = v;
+  document.getElementById("cpfPreview").innerText = "CPF: " + v;
+};
 
-  document.getElementById("cpfPreview").innerText =
-    "CPF: " + v;
-});
-
-document.getElementById("cns").addEventListener("input", function () {
-
-  let v = this.value.replace(/\D/g, "");
-  v = v.substring(0, 15);
-
-  v = v.replace(/(\d{3})(\d)/, "$1 $2");
-  v = v.replace(/(\d{3}) (\d{4})(\d)/, "$1 $2 $3");
-  v = v.replace(/(\d{3}) (\d{4}) (\d{4})(\d)/, "$1 $2 $3 $4");
-
+document.getElementById("cns").oninput = function () {
+  let v = this.value.replace(/\D/g, "").substring(0, 15);
   this.value = v;
+  document.getElementById("cnsPreview").innerText = "CNS: " + v;
+};
 
-  document.getElementById("cnsPreview").innerText =
-    "CNS: " + v;
-});
-
-// =====================
-// ADD CARD (CORRIGIDO)
-// =====================
+// ================= ADD CARD =================
 
 function adicionarCard() {
 
@@ -140,91 +119,49 @@ function adicionarCard() {
     return;
   }
 
-  const card = {
-    nome: document.getElementById("nome").value,
-    data: document.getElementById("data").value,
-    sexo: document.getElementById("sexo").value,
-    cns: document.getElementById("cns").value,
-    cpf: document.getElementById("cpf").value,
+  cards.push({
+    nome: nome.value,
+    data: data.value,
+    sexo: sexo.value,
+    cns: cns.value,
+    cpf: cpf.value,
+    modelo: modeloAtual
+  });
 
-    // 🔥 CORRETO: salva o modelo atual REAL
-    modelo: cartao.src
-  };
+  alert(`Card adicionado! (${cards.length}/5)`);
 
-  cards.push(card);
-
-  alert("Card adicionado! (" + cards.length + "/5)");
-
-  limparCampos();
+  nome.value = data.value = cns.value = cpf.value = "";
 }
 
-function limparCampos() {
-  document.getElementById("nome").value = "";
-  document.getElementById("data").value = "";
-  document.getElementById("cns").value = "";
-  document.getElementById("cpf").value = "";
-}
-
-// =====================
-// PDF (CORRIGIDO)
-// =====================
+// ================= PDF =================
 
 async function gerarPDF() {
 
-  if (cards.length === 0) {
-    alert("Adicione pelo menos 1 card!");
-    return;
-  }
-
   const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
 
-  const pdf = new jsPDF({
-    orientation: "portrait",
-    unit: "mm",
-    format: "a4"
-  });
-
-  const cardWidth = 170;
-  const cardHeight = 55;
-
-  const pageWidth = 210;
-  const x = (pageWidth - cardWidth) / 2;
+  const area = document.querySelector(".cartao-area");
 
   let y = 10;
-  const gap = 3;
 
-  const cartaoArea = document.querySelector(".cartao-area");
-
-  for (let i = 0; i < cards.length; i++) {
-
-    const c = cards[i];
-
-    document.getElementById("nomePreview").innerText = c.nome.toUpperCase();
-    document.getElementById("dataPreview").innerText = "Data Nasc.: " + c.data;
-    document.getElementById("sexoPreview").innerText = "Sexo: " + c.sexo;
-    document.getElementById("cnsPreview").innerText = "CNS: " + c.cns;
-    document.getElementById("cpfPreview").innerText = "CPF: " + c.cpf;
+  for (let c of cards) {
 
     carregarModelo(c.modelo);
 
-    await new Promise(resolve => {
-      const img = document.getElementById("cartao");
-      if (img.complete && img.naturalWidth > 0) return resolve();
-      img.onload = () => resolve();
-    });
+    nomePreview.innerText = c.nome;
+    dataPreview.innerText = c.data;
+    sexoPreview.innerText = c.sexo;
+    cnsPreview.innerText = c.cns;
+    cpfPreview.innerText = c.cpf;
 
-    await new Promise(resolve => setTimeout(resolve, 400));
+    await new Promise(r => setTimeout(r, 300));
 
-    const canvas = await html2canvas(cartaoArea, {
-      scale: 3,
-      useCORS: true
-    });
+    const canvas = await html2canvas(area, { scale: 3 });
+    const img = canvas.toDataURL("image/png");
 
-    const imgData = canvas.toDataURL("image/png");
+    pdf.addImage(img, "PNG", 10, y, 180, 55);
 
-    pdf.addImage(imgData, "PNG", x, y, cardWidth, cardHeight);
-
-    y += cardHeight + gap;
+    y += 60;
   }
 
   pdf.save("cartoes.pdf");
