@@ -137,13 +137,14 @@ document.getElementById("cns").addEventListener("input", function () {
     return;
   }
 
-  const card = {
-    nome: document.getElementById("nome").value.toUpperCase(),
-    data: document.getElementById("data").value,
-    sexo: document.getElementById("sexo").value,
-    cns: document.getElementById("cns").value,
-    cpf: document.getElementById("cpf").value,
-    modelo: document.getElementById("cartao").src
+ const card = {
+  nome: document.getElementById("nome").value,
+  data: document.getElementById("data").value,
+  sexo: document.getElementById("sexo").value,
+  cns: document.getElementById("cns").value,
+  cpf: document.getElementById("cpf").value,
+  modelo: document.getElementById("cartao").src
+};
     
   };
 
@@ -165,7 +166,7 @@ document.getElementById("cns").addEventListener("input", function () {
 
   async function gerarPDF() {
 
-    if (cards.length === 0) {
+  if (cards.length === 0) {
     alert("Adicione pelo menos 1 card!");
     return;
   }
@@ -189,29 +190,20 @@ document.getElementById("cns").addEventListener("input", function () {
 
   const cartao = document.querySelector(".cartao-area");
 
-const nome = cards[i].nome.toUpperCase();
-const data = cards[i].data;
-const sexo = "Sexo: " + cards[i].sexo;
-const cns = "CNS: " + cards[i].cns;
-const cpf = "CPF: " + cards[i].cpf;
-
   for (let i = 0; i < cards.length; i++) {
 
-document.getElementById("nomePreview").innerText = nome;
-document.getElementById("dataPreview").innerText = data;
-document.getElementById("sexoPreview").innerText = sexo;
-document.getElementById("cnsPreview").innerText = cns;
-document.getElementById("cpfPreview").innerText = cpf;
+    const card = cards[i];
 
-    document.getElementById("cartao").src = cards[i].modelo;
+    // 🔥 força exatamente o formato correto
+    document.getElementById("nomePreview").innerText = card.nome.toUpperCase();
+    document.getElementById("dataPreview").innerText = "Data Nasc.: " + card.data;
+    document.getElementById("sexoPreview").innerText = "Sexo: " + card.sexo;
+    document.getElementById("cnsPreview").innerText = "CNS: " + card.cns;
+    document.getElementById("cpfPreview").innerText = "CPF: " + card.cpf;
 
-await new Promise(resolve => requestAnimationFrame(() => resolve()));
-await new Promise(resolve => setTimeout(resolve, 100));
+    document.getElementById("cartao").src = card.modelo;
 
-  if (img.complete) return resolve();
-
-  img.onload = () => resolve();
-});
+    await new Promise(resolve => setTimeout(resolve, 200));
 
     const canvas = await html2canvas(cartao, {
       scale: 3,
