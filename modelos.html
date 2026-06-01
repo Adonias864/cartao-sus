@@ -6,127 +6,86 @@
 <title>Modelos</title>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
 <div class="login-box">
 
 <h1 id="tituloCategoria"></h1>
 
-<p>
-Clique no cartão desejado para editar as informações.
-</p>
+<p>Clique no cartão desejado para editar.</p>
 
 <div id="areaModelos"></div>
 
-<button onclick="voltar()">
-Voltar
-</button>
+<button onclick="voltar()">Voltar</button>
 
+</div>
+
+<!-- MODAL -->
+<div id="modalConfirm" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;">
+  <div style="background:#fff;padding:20px;border-radius:12px;text-align:center;width:250px;">
+    <p>Deseja editar este cartão?</p>
+    <button onclick="irEditor()">SIM</button>
+    <button onclick="fecharModal()">NÃO</button>
+  </div>
 </div>
 
 <script>
 
-let modelosSelecionados = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
-  
-if(localStorage.getItem("logado") !== "true"){
+if (localStorage.getItem("logado") !== "true") {
   window.location.href = "index.html";
 }
 
-const categoria =
-  localStorage.getItem("categoria");
+const categoria = localStorage.getItem("categoria");
+const area = document.getElementById("areaModelos");
 
-const areaModelos =
-  document.getElementById("areaModelos");
+document.getElementById("tituloCategoria").innerText = categoria.toUpperCase();
 
-document.getElementById("tituloCategoria")
-.innerText =
-categoria.toUpperCase();
+// 🔥 LIMPA MODELos ao entrar (evita bug de duplicação)
+let modelosSelecionados = [];
 
-if(categoria === "times"){
+// se quiser manter histórico, aqui já fica pronto:
+const antigos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
+modelosSelecionados = antigos;
 
-  areaModelos.innerHTML = `
+if (categoria === "times") {
 
-    <img
-      src="modelos/Cartao-SUS-Playstaion.png"
-      width="300"
+  area.innerHTML = `
+    <img src="modelos/Cartao-SUS-Playstaion.png" width="300"
       onclick="selecionarModelo('Cartao-SUS-Playstaion.png')"
-      style="cursor:pointer;border-radius:10px;transition:0.3s;">
+      style="cursor:pointer;border-radius:10px;margin:10px;">
 
-    <img
-      src="modelos/modelo1.png"
-      width="300"
+    <img src="modelos/modelo1.png" width="300"
       onclick="selecionarModelo('modelo1.png')"
-      style="cursor:pointer;border-radius:10px;transition:0.3s;">
-      
+      style="cursor:pointer;border-radius:10px;margin:10px;">
   `;
-
 }
 
-function voltar(){
-
-  window.location.href = "painel.html";
-
-}
-
-function irEditor(){
-
-  window.location.href = "editor.html";
-
-}
-
-function fecharModal(){
-
-  document.getElementById("modalConfirm").style.display = "none";
-
-}
-  
 function selecionarModelo(modelo) {
 
+  // 🔥 adiciona SEM sobrescrever
   modelosSelecionados.push(modelo);
 
   localStorage.setItem("modelosSelecionados", JSON.stringify(modelosSelecionados));
+  localStorage.setItem("modeloSelecionado", modelo); // último ativo
 
   document.getElementById("modalConfirm").style.display = "flex";
 }
+
+function irEditor() {
+  window.location.href = "editor.html";
+}
+
+function fecharModal() {
+  document.getElementById("modalConfirm").style.display = "none";
+}
+
+function voltar() {
+  window.location.href = "painel.html";
+}
+
 </script>
-
-
-<!-- MODAL DE CONFIRMAÇÃO -->
-<div id="modalConfirm" style="
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
-  justify-content:center;
-  align-items:center;
-">
-
-  <div style="
-    background:white;
-    padding:20px;
-    border-radius:12px;
-    text-align:center;
-    width:250px;
-  ">
-
-    <p>Deseja editar este cartão?</p>
-
-    <button onclick="irEditor()" style="margin-right:10px;">
-      SIM
-    </button>
-
-    <button onclick="fecharModal()">
-      NÃO
-    </button>
-
-  </div>
-
-</div>
 
 </body>
 </html>
