@@ -121,7 +121,7 @@ button.sair:hover {
 .sexo {
   position: absolute;
   top: 27%;
-  left: 80%;
+  left: 85%;
   transform: translateX(-50%);
   font-size: 0.3rem;
 }
