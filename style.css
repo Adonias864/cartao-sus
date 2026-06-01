@@ -178,16 +178,16 @@ select {
 
   /* DATA / SEXO */
   .data {
-    font-size: 7px;
+    font-size: 6px;
   }
 
   .sexo {
-    font-size: 5px;
+    font-size: 4px;
   }
 
   /* CNS */
   .cns {
-    font-size: 6px;
+    font-size: 5px;
   }
 
   /* CPF */
