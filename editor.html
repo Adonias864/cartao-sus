@@ -189,17 +189,24 @@ document.getElementById("cns").addEventListener("input", function () {
 
   const cartao = document.querySelector(".cartao-area");
 
+const nome = cards[i].nome.toUpperCase();
+const data = cards[i].data;
+const sexo = "Sexo: " + cards[i].sexo;
+const cns = "CNS: " + cards[i].cns;
+const cpf = "CPF: " + cards[i].cpf;
+
   for (let i = 0; i < cards.length; i++) {
 
-    docdocument.getElementById("sexoPreview").innerText = "Sexo: " + cards[i].sexo;
-document.getElementById("cnsPreview").innerText = "CNS: " + cards[i].cns;
-document.getElementById("cpfPreview").innerText = "CPF: " + cards[i].cpf;
-document.getElementById("dataPreview").innerText = "Data Nasc.: " + cards[i].data;
+document.getElementById("nomePreview").innerText = nome;
+document.getElementById("dataPreview").innerText = data;
+document.getElementById("sexoPreview").innerText = sexo;
+document.getElementById("cnsPreview").innerText = cns;
+document.getElementById("cpfPreview").innerText = cpf;
 
     document.getElementById("cartao").src = cards[i].modelo;
 
-await new Promise(resolve => {
-  const img = document.getElementById("cartao");
+await new Promise(resolve => requestAnimationFrame(() => resolve()));
+await new Promise(resolve => setTimeout(resolve, 100));
 
   if (img.complete) return resolve();
 
