@@ -167,11 +167,11 @@ function adicionarCard() {
   cns.value = "";
   cpf.value = "";
 
-  nomePreview.innerText = "";
-  dataPreview.innerText = "";
-  sexoPreview.innerText = "";
-  cnsPreview.innerText = "";
-  cpfPreview.innerText = "";
+  nomePreview.innerText = c.nome.toUpperCase();
+dataPreview.innerText = "Data Nasc.: " + c.data;
+sexoPreview.innerText = "Sexo: " + c.sexo;
+cnsPreview.innerText = "CNS: " + c.cns;
+cpfPreview.innerText = "CPF: " + c.cpf;
 }
 
 // ================= PDF =================
