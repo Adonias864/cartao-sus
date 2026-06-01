@@ -173,7 +173,9 @@ label {
 
   .login-box {
     width: 100%;
-    padding: 15px;
+    max-width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
   }
 
   h1 {
@@ -185,7 +187,9 @@ label {
     font-size: 18px;
   }
 
-  input, select, button {
+  input,
+  select,
+  button {
     width: 100%;
     font-size: 16px;
     margin-bottom: 10px;
@@ -194,11 +198,18 @@ label {
 
   .cartao-area {
     width: 100%;
-    max-width: 100%;
-    transform: scale(1);
+    display: flex;
+    justify-content: center;
+  }
+
+  #cartao {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
   }
 
   .campo {
     font-size: 14px;
+    transform: scale(1.05);
   }
 }
