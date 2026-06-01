@@ -75,15 +75,15 @@ button.sair:hover {
 
 .cartao-area {
   position: relative;
-  width: 850px;
-  height: 275px;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
   overflow: hidden;
 }
 
 #cartao {
-  width: 850px;
-  height: 275px;
+  width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -153,20 +153,12 @@ select {
 /* =========================
    MOBILE (CORRIGIDO DE VERDADE)
 ========================= */
-
 @media (max-width: 600px) {
 
 .cartao-area {
-    width: 850px;
-    height: 275px;
-    transform: scale(0.45);
-    transform-origin: top left;
-    margin-bottom: -130px;
-  }
-
-}
-
-  .cartao-area-edicao {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
     transform: scale(1.05);
     transform-origin: top center;
   }
