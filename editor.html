@@ -56,7 +56,7 @@ if (!localStorage.getItem("modeloSelecionado")) {
 }
 
 // modelo inicial
-const modelo = localStorage.getItem("modeloSelecionado");
+const modelos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
 const cartao = document.getElementById("cartao");
 
 function carregarModelo(src) {
@@ -145,6 +145,8 @@ function adicionarCard() {
     cns: document.getElementById("cns").value,
     cpf: document.getElementById("cpf").value,
     modelo: cartao.src
+
+     modelo: modelos[modelos.length - 1]
   };
 
   cards.push(card);
