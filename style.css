@@ -156,31 +156,38 @@ select {
 
 @media (max-width: 600px) {
 
-  /* impede texto de crescer fora do cartão */
+  .cartao-area {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    transform: scale(1.15);
+    transform-origin: top center;
+  }
+
+  /* 🔒 trava texto dentro do layout original */
   .campo {
-    font-size: 12px !important; /* força base menor */
-    transform: scale(1) !important;
-    white-space: nowrap; /* impede quebra de linha */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 10px;
+    line-height: 1;
   }
 
-  /* ajustes finos por campo (proporção real) */
   .nome {
-    font-size: 14px !important;
-    max-width: 180px;
+    font-size: 11px;
   }
 
-  .data,
+  .data {
+    font-size: 10px;
+  }
+
   .sexo {
-    font-size: 12px !important;
+    font-size: 10px;
   }
 
   .cns {
-    font-size: 12px !important;
+    font-size: 10px;
   }
 
   .cpf {
-    font-size: 13px !important;
+    font-size: 11px;
   }
+
 }
