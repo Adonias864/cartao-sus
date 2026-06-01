@@ -174,7 +174,11 @@ function adicionarCard() {
 async function gerarPDF() {
 
   const { jsPDF } = window.jspdf;
-  const pdf = new jsPDF();
+  const pdf = new jsPDF({
+  orientation: "portrait",
+  unit: "mm",
+  format: "a4"
+});
 
   const area = document.querySelector(".cartao-area");
 
@@ -192,16 +196,17 @@ async function gerarPDF() {
 
   await new Promise(r => setTimeout(r, 300));
 
-  const canvas = await html2canvas(area, {
-    scale: 3,
-    useCORS: true
-  });
+ const canvas = await html2canvas(area, {
+  scale: 5,
+  useCORS: true,
+  backgroundColor: null
+});
 
   const img = canvas.toDataURL("image/png");
 
-  pdf.addImage(img, "PNG", 10, y, 180, 50);
+  pdf.addImage(img, "PNG", 20, y, 170, 55);
 
-  y += 50;
+  y += 56;
 }
 
   pdf.save("cartoes.pdf");
