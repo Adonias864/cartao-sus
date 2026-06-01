@@ -171,7 +171,7 @@ select {
   }
 
   .nome {
-    font-size: 4px;
+    font-size: 9px;
   }
 
   .data {
@@ -183,11 +183,11 @@ select {
   }
 
   .cns {
-    font-size: 4;
+    font-size: 4px;
   }
 
   .cpf {
-    font-size: 6px;
+    font-size: 9px;
   }
 
 }
