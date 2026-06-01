@@ -11,14 +11,15 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f2f2f2;
+  font-size: 16px;
 }
 
 /* =========================
-   CONTAINER
+   CONTAINER (VERSÃO CORRIGIDA)
 ========================= */
 
 .login-box {
-  width: 95%;
+  width: 100%;
   max-width: 500px;
   margin: 20px auto;
   padding: 15px;
@@ -60,8 +61,6 @@ button:active,
   transform: scale(0.98);
 }
 
-/* BOTÃO SAIR */
-
 button.sair {
   background: #ef4444 !important;
 }
@@ -89,7 +88,7 @@ button.sair:hover {
 }
 
 /* =========================
-   CAMPOS SOBRE O CARTÃO
+   CAMPOS
 ========================= */
 
 .campo {
@@ -100,9 +99,8 @@ button.sair:hover {
   letter-spacing: -0.7px;
 }
 
-/* NOME */
+/* POSICIONAMENTO */
 .nome {
-  position: absolute;
   top: 20%;
   left: 75%;
   transform: translateX(-50%);
@@ -112,7 +110,6 @@ button.sair:hover {
 }
 
 .data {
-  position: absolute;
   top: 28%;
   left: 70%;
   transform: translateX(-50%);
@@ -120,7 +117,6 @@ button.sair:hover {
 }
 
 .sexo {
-  position: absolute;
   top: 28%;
   left: 85%;
   transform: translateX(-50%);
@@ -128,7 +124,6 @@ button.sair:hover {
 }
 
 .cns {
-  position: absolute;
   top: 35%;
   left: 75%;
   transform: translateX(-50%);
@@ -136,7 +131,6 @@ button.sair:hover {
 }
 
 .cpf {
-  position: absolute;
   top: 41%;
   left: 75%;
   transform: translateX(-50%) scaleY(1.2);
@@ -156,17 +150,8 @@ select {
   border: 1px solid #ccc;
 }
 
-label {
-  font-weight: bold;
-  display: block;
-}
-
 /* =========================
-   MOBILE
-========================= */
-
-/* =========================
-   AJUSTE PARA CELULAR
+   MOBILE (CORRIGIDO DE VERDADE)
 ========================= */
 
 @media (max-width: 600px) {
@@ -175,7 +160,6 @@ label {
     width: 100%;
     max-width: 100%;
     padding: 12px;
-    box-sizing: border-box;
   }
 
   h1 {
@@ -190,10 +174,9 @@ label {
   input,
   select,
   button {
-    width: 100%;
     font-size: 16px;
-    margin-bottom: 10px;
     padding: 10px;
+    margin-bottom: 10px;
   }
 
   .cartao-area {
@@ -204,7 +187,7 @@ label {
 
   #cartao {
     width: 100%;
-    max-width: 320px;
+    max-width: 340px;
     height: auto;
   }
 
