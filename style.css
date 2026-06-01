@@ -101,40 +101,47 @@ button.sair:hover {
 
 /* NOME */
 .nome {
-  top: 25px;
-  left: 225px;
-  width: 150px;
+  position: absolute;
+  top: 10%;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 45%;
   text-align: center;
-  font-size: 6px;
+  font-size: 0.6rem;
 }
 
-/* DATA */
 .data {
-  top: 62px;
-  left: 215px;
-  font-size: 7px;
+  position: absolute;
+  top: 25%;
+  left: 58%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
 }
 
-/* SEXO */
 .sexo {
-  top: 62px;
-  left: 325px;
-  font-size: 7px;
+  position: absolute;
+  top: 25%;
+  left: 82%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
 }
 
-/* CNS */
 .cns {
-  top: 86px;
-  left: 215px;
-  font-size: 7px;
+  position: absolute;
+  top: 40%;
+  left: 58%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
 }
 
-/* CPF */
 .cpf {
-  top: 112px;
-  left: 215px;
-  font-size: 8px;
+  position: absolute;
+  top: 55%;
+  left: 58%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
 }
+
 /* =========================
    INPUTS
 ========================= */
