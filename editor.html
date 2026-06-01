@@ -14,7 +14,7 @@
 
 <h1>Editor de Cartão</h1>
 
-<div class="cartao-area">
+<div class="cartao-area cartao-area-edicao">
   <img id="cartao" crossorigin="anonymous">
 
   <div id="nomePreview" class="campo nome"></div>
@@ -201,7 +201,7 @@ async function gerarPDF() {
 
   pdf.addImage(img, "PNG", 20, y, 170, 55);
 
-  y += 57;
+y += 56;
 }
 
   pdf.save("cartoes.pdf");
