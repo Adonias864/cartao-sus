@@ -136,21 +136,31 @@ function adicionarCard() {
     return;
   }
 
-  cards.push({
-    
-    localStorage.setItem("cards", JSON.stringify(cards));
-  
+  const card = {
     nome: nome.value,
     data: data.value,
     sexo: sexo.value,
     cns: cns.value,
     cpf: cpf.value,
     modelo: modeloAtual
-  });
+  };
 
-  alert(`Card adicionado! (${cards.length}/5)`);
+  cards.push(card);
 
-  nome.value = data.value = cns.value = cpf.value = "";
+  localStorage.setItem("cards", JSON.stringify(cards));
+
+  alert("Card adicionado! (" + cards.length + "/5)");
+
+  nome.value = "";
+  data.value = "";
+  cns.value = "";
+  cpf.value = "";
+
+  nomePreview.innerText = "";
+  dataPreview.innerText = "";
+  sexoPreview.innerText = "";
+  cnsPreview.innerText = "";
+  cpfPreview.innerText = "";
 }
 
 // ================= PDF =================
