@@ -41,6 +41,14 @@
 <button onclick="trocarModelo()">Trocar Modelo</button>
 <button onclick="gerarPDF()">Gerar PDF</button>
 
+  <button onclick="descartarCartoes()" class="sair">
+  Descartar Cartões
+</button>
+
+<button onclick="sairSistema()" class="sair">
+  Sair
+</button>
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -204,6 +212,28 @@ localStorage.removeItem("modelosSelecionados");
   
 }
 
+function descartarCartoes() {
+
+  if (!confirm("Deseja descartar todos os cartões adicionados?")) {
+    return;
+  }
+
+  localStorage.removeItem("cards");
+  localStorage.removeItem("modelosSelecionados");
+  localStorage.removeItem("modeloSelecionado");
+
+  window.location.href = "painel.html";
+}
+
+function sairSistema() {
+
+  localStorage.removeItem("cards");
+  localStorage.removeItem("modelosSelecionados");
+  localStorage.removeItem("modeloSelecionado");
+
+  window.location.href = "painel.html";
+}
+  
 </script>
 
 </body>
