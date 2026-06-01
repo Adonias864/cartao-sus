@@ -199,7 +199,7 @@ async function gerarPDF() {
 
   const img = canvas.toDataURL("image/png");
 
-  pdf.addImage(img, "PNG", 20, y, 170, 55);
+  pdf.addImage(img, "PNG", 10, y, 170, 55);
 
 y += 56;
 }
