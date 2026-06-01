@@ -38,12 +38,15 @@
   <input id="cns" placeholder="CNS: 000 0000 0000 0000">
   <input id="cpf" placeholder="CPF: 000.000.000-00">
 
-<button class="app-btn" onclick="gerarPDF()">Gerar Cartão</button>
+<button onclick="adicionarCard()">Adicionar +1 Card</button>
+<button onclick="gerarPDF()">Gerar PDF</button>
 
 </div>
 
 <script>
 
+let cards = [];
+  
 if(localStorage.getItem("logado") !== "true"){
   window.location.href = "index.html";
 }
@@ -126,42 +129,91 @@ document.getElementById("cns").addEventListener("input", function () {
   document.getElementById("cnsPreview").innerText = "CNS: " + v;
 
 });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  
-<script>
-function gerarPDF() {
+
+  function adicionarCard() {
+
+  if (cards.length >= 5) {
+    alert("Limite de 5 cartões!");
+    return;
+  }
+
+  const card = {
+    nome: document.getElementById("nome").value,
+    data: document.getElementById("data").value,
+    sexo: document.getElementById("sexo").value,
+    cns: document.getElementById("cns").value,
+    cpf: document.getElementById("cpf").value,
+    modelo: document.getElementById("cartao").src
+    
+  };
+
+  cards.push(card);
+
+  alert("Card adicionado! (" + cards.length + "/5)");
+
+  limparCampos();
+    
+}
+
+  function limparCampos() {
+  document.getElementById("nome").value = "";
+  document.getElementById("data").value = "";
+  document.getElementById("cns").value = "";
+  document.getElementById("cpf").value = "";
+    
+}
+
+  async function gerarPDF() {
+
+  const { jsPDF } = window.jspdf;
+
+  const pdf = new jsPDF({
+    orientation: "portrait",
+    unit: "mm",
+    format: "a4"
+  });
+
+  const cardWidth = 170;
+  const cardHeight = 55;
+
+  const pageWidth = 210;
+  const x = (pageWidth - cardWidth) / 2;
+
+  let y = 10;
+  const gap = 3;
+
   const cartao = document.querySelector(".cartao-area");
 
-  html2canvas(cartao, {
-    scale: 3,
-    useCORS: true
-  }).then(canvas => {
+  for (let i = 0; i < cards.length; i++) {
+
+    document.getElementById("nomePreview").innerText = cards[i].nome;
+    document.getElementById("dataPreview").innerText = cards[i].data;
+    document.getElementById("sexoPreview").innerText = cards[i].sexo;
+    document.getElementById("cnsPreview").innerText = cards[i].cns;
+    document.getElementById("cpfPreview").innerText = cards[i].cpf;
+
+    document.getElementById("cartao").src = cards[i].modelo;
+
+await new Promise(resolve => requestAnimationFrame(() => setTimeout(resolve, 150)));
+
+    const canvas = await html2canvas(cartao, {
+      scale: 3,
+      useCORS: true
+    });
 
     const imgData = canvas.toDataURL("image/png");
 
-    const { jsPDF } = window.jspdf; // 🔥 ISSO É O CORRETO
-
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "mm",
-      format: "a4"
-    });
-
-    const cardWidth = 170;
-    const cardHeight = 55;
-
-    const pageWidth = 210;
-    const x = (pageWidth - cardWidth) / 2;
-    const y = 10;
-
     pdf.addImage(imgData, "PNG", x, y, cardWidth, cardHeight);
-    pdf.save("cartao.pdf");
-  });
+
+    y += cardHeight + gap;
+  }
+
+  pdf.save("cartoes.pdf");
 }
-  
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   
 </body>
 </html>
