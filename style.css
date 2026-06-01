@@ -190,4 +190,6 @@ label {
     font-size: 10px; /* aumenta leitura no celular */
   }
 
+body {
+  font-size: 16px;
 }
