@@ -129,7 +129,7 @@ button.sair:hover {
 .cns {
   position: absolute;
   top: 35%;
-  left: 80%;
+  left: 75%;
   transform: translateX(-50%);
   font-size: 0.3rem;
 }
