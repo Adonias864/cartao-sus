@@ -15,7 +15,7 @@
 
   <div class="cartao-area">
 
-  <img id="cartao">
+  <img id="cartao" crossorigin="anonymous">
 
   <div id="nomePreview" class="campo nome"></div>
   <div id="dataPreview" class="campo data"></div>
@@ -38,7 +38,7 @@
   <input id="cns" placeholder="CNS: 000 0000 0000 0000">
   <input id="cpf" placeholder="CPF: 000.000.000-00">
 
-  <button class="app-btn">Gerar Cartão</button>
+<button class="app-btn" onclick="gerarPDF()">Gerar Cartão</button>
 
 </div>
 
@@ -116,7 +116,6 @@ document.getElementById("cpf").addEventListener("input", function () {
 document.getElementById("cns").addEventListener("input", function () {
 
   let v = this.value.replace(/\D/g, "");
-
   v = v.substring(0, 15);
 
   v = v.replace(/(\d{3})(\d)/, "$1 $2");
@@ -124,12 +123,36 @@ document.getElementById("cns").addEventListener("input", function () {
   v = v.replace(/(\d{3}) (\d{4}) (\d{4})(\d)/, "$1 $2 $3 $4");
 
   this.value = v;
-  document.getElementById("cnsPreview").innerText =
-"CNS: " + v;
+  document.getElementById("cnsPreview").innerText = "CNS: " + v;
 
 });
-
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  
+<script>
+function gerarPDF() {
+  const cartao = document.querySelector(".cartao-area");
 
+  html2canvas(cartao, {
+    scale: 3,
+    useCORS: true,
+    backgroundColor: null
+  }).then(canvas => {
+    const imgData = canvas.toDataURL("image/png");
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF("landscape", "mm", "a4");
+
+    const imgWidth = 297;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.save("cartao.pdf");
+  });
+}
+  
+</script>
+  
 </body>
 </html>
