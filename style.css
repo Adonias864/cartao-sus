@@ -157,7 +157,7 @@ select {
 @media (max-width: 600px) {
 
   body {
-    padding: 0;
+    padding: 10px;
   }
 
   .login-box {
@@ -165,33 +165,44 @@ select {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
-    padding: 15px;
+    padding: 20px;
   }
 
-  /* força o conteúdo a ficar “grande de verdade” */
-  h1, h2 {
-    font-size: 22px;
+  h1 {
+    font-size: 24px;
   }
 
-  input, select, button {
+  h2 {
+    font-size: 20px;
+  }
+
+  input,
+  select,
+  button {
     font-size: 18px;
     padding: 14px;
   }
 
-  /* 🔥 A PARTE IMPORTANTE (onde normalmente está o problema) */
+  /* 🔥 AGORA SIM: CARTÃO REALMENTE MAIOR */
   .cartao-area {
     width: 100%;
-    max-width: 100%;
-    transform: scale(1.15);
-    transform-origin: top center;
-    margin: 20px 0;
+    max-width: 500px; /* 🔥 aumenta o espaço real */
+    margin: 20px auto;
   }
 
   #cartao {
+    width: 100%;
     max-width: 100%;
   }
 
+  /* 🔥 CAMPOS MAIS VISÍVEIS */
   .campo {
-    font-size: 16px;
+    font-size: 18px;
   }
+
+  .nome { font-size: 0.55rem; }
+  .data { font-size: 0.45rem; }
+  .sexo { font-size: 0.45rem; }
+  .cns  { font-size: 0.5rem; }
+  .cpf  { font-size: 0.6rem; }
 }
