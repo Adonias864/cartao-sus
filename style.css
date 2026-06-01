@@ -155,10 +155,15 @@ select {
 ========================= */
 @media (max-width: 600px) {
 
+@media (max-width: 600px) {
+
 .cartao-area {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     margin: 20px auto;
+  }
+
+  .cartao-area-edicao {
     transform: scale(1.05);
     transform-origin: top center;
   }
