@@ -138,7 +138,7 @@ document.getElementById("cns").addEventListener("input", function () {
   }
 
   const card = {
-    nome: document.getElementById("nome").value,
+    nome: document.getElementById("nome").value.toUpperCase(),
     data: document.getElementById("data").value,
     sexo: document.getElementById("sexo").value,
     cns: document.getElementById("cns").value,
@@ -191,11 +191,10 @@ document.getElementById("cns").addEventListener("input", function () {
 
   for (let i = 0; i < cards.length; i++) {
 
-    document.getElementById("nomePreview").innerText = cards[i].nome;
-    document.getElementById("dataPreview").innerText = cards[i].data;
-    document.getElementById("sexoPreview").innerText = cards[i].sexo;
-    document.getElementById("cnsPreview").innerText = cards[i].cns;
-    document.getElementById("cpfPreview").innerText = cards[i].cpf;
+    docdocument.getElementById("sexoPreview").innerText = "Sexo: " + cards[i].sexo;
+document.getElementById("cnsPreview").innerText = "CNS: " + cards[i].cns;
+document.getElementById("cpfPreview").innerText = "CPF: " + cards[i].cpf;
+document.getElementById("dataPreview").innerText = "Data Nasc.: " + cards[i].data;
 
     document.getElementById("cartao").src = cards[i].modelo;
 
