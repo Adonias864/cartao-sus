@@ -136,8 +136,8 @@ button.sair:hover {
 
 .cpf {
   position: absolute;
-  top: 55%;
-  left: 58%;
+  top: 45%;
+  left: 75%;
   transform: translateX(-50%);
   font-size: 0.7rem;
 }
