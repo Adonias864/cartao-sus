@@ -60,6 +60,9 @@ let modelos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
 
 let modeloAtual = localStorage.getItem("modeloSelecionado");
 
+console.log("modeloAtual:", modeloAtual);
+console.log("modelos:", modelos);
+
 // fallback seguro
 if (!modeloAtual && modelos.length > 0) {
   modeloAtual = modelos[modelos.length - 1];
