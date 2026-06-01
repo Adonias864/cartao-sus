@@ -1,4 +1,10 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Editor</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -46,31 +52,27 @@
 
 let cards = [];
 
-// 🔥 proteção login
+// login
 if (localStorage.getItem("logado") !== "true") {
   window.location.href = "index.html";
 }
 
-if (!localStorage.getItem("modeloSelecionado")) {
-  window.location.href = "modelos.html";
-}
-
-// modelo inicial
-const modelos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
+// modelo
+const modelo = localStorage.getItem("modeloSelecionado");
 const cartao = document.getElementById("cartao");
 
 function carregarModelo(src) {
   cartao.src = src;
 }
 
-  function trocarModelo() {
+function trocarModelo() {
   window.location.href = "modelos.html";
 }
 
 carregarModelo("modelos/" + modelo);
 
 // =====================
-// PREVIEW AO DIGITAR
+// PREVIEW
 // =====================
 
 document.getElementById("nome").addEventListener("input", () => {
@@ -128,7 +130,7 @@ document.getElementById("cns").addEventListener("input", function () {
 });
 
 // =====================
-// ADICIONAR CARD
+// ADD CARD
 // =====================
 
 function adicionarCard() {
@@ -145,8 +147,6 @@ function adicionarCard() {
     cns: document.getElementById("cns").value,
     cpf: document.getElementById("cpf").value,
     modelo: cartao.src
-
-     modelo: modelos[modelos.length - 1]
   };
 
   cards.push(card);
@@ -164,7 +164,7 @@ function limparCampos() {
 }
 
 // =====================
-// GERAR PDF
+// PDF
 // =====================
 
 async function gerarPDF() {
