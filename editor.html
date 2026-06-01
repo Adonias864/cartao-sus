@@ -34,6 +34,7 @@
   <input id="cpf" placeholder="CPF: 000.000.000-00">
 
   <button onclick="adicionarCard()">Adicionar Card</button>
+  <button onclick="trocarModelo()">Trocar Modelo</button>
   <button onclick="gerarPDF()">Gerar PDF</button>
 
 </div>
@@ -60,6 +61,10 @@ const cartao = document.getElementById("cartao");
 
 function carregarModelo(src) {
   cartao.src = src;
+}
+
+  function trocarModelo() {
+  window.location.href = "modelos.html";
 }
 
 carregarModelo("modelos/" + modelo);
