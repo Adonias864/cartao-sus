@@ -141,24 +141,22 @@ function gerarPDF() {
 
     const imgData = canvas.toDataURL("image/png");
 
-    // A4 vertical
+    const { jsPDF } = window.jspdf; // 🔥 ISSO É O CORRETO
+
     const pdf = new jsPDF({
       orientation: "portrait",
       unit: "mm",
       format: "a4"
     });
 
-    // tamanho real desejado do cartão
-    const cardWidth = 170; // mm (17cm)
-    const cardHeight = 55; // mm (5.5cm)
+    const cardWidth = 170;
+    const cardHeight = 55;
 
-    // centralizado no topo
-    const pageWidth = 210; // A4 largura
+    const pageWidth = 210;
     const x = (pageWidth - cardWidth) / 2;
-    const y = 10; // distância do topo
+    const y = 10;
 
     pdf.addImage(imgData, "PNG", x, y, cardWidth, cardHeight);
-
     pdf.save("cartao.pdf");
   });
 }
