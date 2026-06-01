@@ -153,6 +153,7 @@ select {
 /* =========================
    MOBILE (CORRIGIDO DE VERDADE)
 ========================= */
+@media (max-width: 600px) {
 
 .cartao-area {
     width: 100%;
