@@ -34,10 +34,11 @@ function abrirCategoria(categoria){
 }
 
 function sair(){
-  localStorage.removeItem("logado");
-  window.location.href = "index.html";
+  logoutFirebase();
 }
 
+<script type="module" src="auth.js"></script>
+  
 </script>
 
 </body>
