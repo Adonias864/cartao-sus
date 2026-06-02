@@ -36,8 +36,10 @@ window.fazerLogin = async function() {
 
   } catch (error) {
 
-    document.getElementById("erro").innerText =
-      "Usuário ou senha inválidos";
+  console.error(error);
 
-  }
+  document.getElementById("erro").innerText =
+    error.code;
+
+}
 };
