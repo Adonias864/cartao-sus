@@ -34,19 +34,23 @@ window.fazerLogin = async function() {
 
     window.location.href = "painel.html";
 
-  } catch (error) {
+  }  } catch (error) {
 
-  console.error(error);
+    console.error(error);
 
-  if (error.code === "auth/too-many-requests") {
+    if (error.code === "auth/too-many-requests") {
 
-    document.getElementById("erro").innerText =
-      "Muitas tentativas. Tente novamente mais tarde.";
+      document.getElementById("erro").innerText =
+        "Muitas tentativas. Tente novamente mais tarde.";
 
-  } else {
+    } else {
 
-    document.getElementById("erro").innerText =
-      "E-mail ou senha inválidos";
+      document.getElementById("erro").innerText =
+        "E-mail ou senha inválidos";
+
+    }
 
   }
+
+};
 };
