@@ -236,15 +236,12 @@ function descartarCartoes() {
 }
 
 function sairSistema() {
-
-  localStorage.removeItem("cards");
-  localStorage.removeItem("modelosSelecionados");
-  localStorage.removeItem("modeloSelecionado");
-
-  window.location.href = "painel.html";
+  logoutFirebase();
 }
   
 </script>
 
+<script type="module" src="auth.js"></script>
+  
 </body>
 </html>
