@@ -35,11 +35,8 @@ window.fazerLogin = async function() {
     window.location.href = "painel.html";
 
   } catch (error) {
-
   console.error(error);
-
   document.getElementById("erro").innerText =
     error.code;
-
 }
 };
