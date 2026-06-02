@@ -182,6 +182,11 @@ async function gerarPDF() {
 
   const area = document.querySelector(".cartao-area");
 
+  alert(
+  "Largura: " + area.offsetWidth +
+  "\nAltura: " + area.offsetHeight
+);
+
   let y = 10;
 
   for (let c of cards) {
