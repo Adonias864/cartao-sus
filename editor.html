@@ -147,6 +147,10 @@ function adicionarCard() {
     return;
   }
 
+  if (!confirm("Quer adicionar este cartão ao PDF?")) {
+    return;
+  }
+
   const card = {
     nome: nome.value,
     data: data.value,
@@ -166,7 +170,6 @@ function adicionarCard() {
   data.value = "";
   cns.value = "";
   cpf.value = "";
-
 }
 
 // ================= PDF =================
