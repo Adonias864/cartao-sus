@@ -53,4 +53,3 @@ window.fazerLogin = async function() {
   }
 
 };
-};
