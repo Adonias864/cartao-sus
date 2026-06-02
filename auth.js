@@ -20,8 +20,14 @@ const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
 
-  if (!user) {
+  if (user) {
+
+    document.body.style.display = "block";
+
+  } else {
+
     window.location.href = "index.html";
+
   }
 
 });
