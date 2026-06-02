@@ -110,14 +110,14 @@ button.sair:hover {
 }
 
 .data {
-  top: 26%;
+  top: 27%;
   left: 70%;
   transform: translateX(-50%);
   font-size: 0.3rem;
 }
 
 .sexo {
-  top: 26%;
+  top: 27%;
   left: 85%;
   transform: translateX(-50%);
   font-size: 0.3rem;
