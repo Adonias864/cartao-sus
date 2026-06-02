@@ -174,12 +174,14 @@ select {
   /* NOME (maior destaque) */
   .nome {
     transform: translateX(-50%) scaleX(1.05) scaleY(1.15);
+    top: 30%;
     font-size: 6.3px;
   }
 
   /* DATA / SEXO */
   .data {
     left: 71%;
+    top: 35%;
     font-size: 6px;
   }
 
