@@ -16,7 +16,7 @@
 
 <p>Clique no cartão desejado para editar.</p>
 
-<div id="areaModelos"></div>
+<div id="listaModelos"></div>
 
 <button onclick="voltar()">Voltar</button>
 
@@ -49,20 +49,40 @@ let modelosSelecionados = [];
 const antigos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
 modelosSelecionados = antigos;
 
-if (categoria === "times") {
+fetch("modelos.json")
+  .then(res => res.json())
+  .then(data => {
 
-  area.innerHTML = `
-    <img src="modelos/Cartao-SUS-Playstaion.png" width="300"
-      onclick="selecionarModelo('Cartao-SUS-Playstaion.png')"
-      style="cursor:pointer;border-radius:10px;margin:10px;">
+    const lista = document.getElementById("listaModelos");
 
-    <img src="modelos/modelo1.png" width="300"
-      onclick="selecionarModelo('modelo1.png')"
-      style="cursor:pointer;border-radius:10px;margin:10px;">
-  `;
-}
+    const modelos = data[categoria] || [];
+
+    modelos.forEach(img => {
+
+      const el = document.createElement("img");
+
+      el.src = `modelos/${categoria}/${img}`;
+      el.width = 300;
+      el.style.cursor = "pointer";
+      el.style.borderRadius = "10px";
+      el.style.margin = "10px";
+
+      el.onclick = () => selecionarModelo(img);
+
+      lista.appendChild(el);
+    });
+
+  });
 
 function selecionarModelo(modelo) {
+
+  modelosSelecionados.push(`${categoria}/${modelo}`);
+
+  localStorage.setItem("modelosSelecionados", JSON.stringify(modelosSelecionados));
+  localStorage.setItem("modeloSelecionado", `${categoria}/${modelo}`);
+
+  document.getElementById("modalConfirm").style.display = "flex";
+}
 
   // 🔥 adiciona SEM sobrescrever
   modelosSelecionados.push(modelo);
