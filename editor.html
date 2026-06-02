@@ -181,15 +181,6 @@ async function gerarPDF() {
 });
 
   const area = document.querySelector(".cartao-area");
-
-  alert(
-  "Largura: " + area.offsetWidth +
-  "\nAltura: " + area.offsetHeight
-);
-
-  alert(
-  "Pixel Ratio: " + window.devicePixelRatio
-);
   
   let y = 10;
 
@@ -205,10 +196,10 @@ async function gerarPDF() {
 
   await new Promise(r => setTimeout(r, 300));
 
- const canvas = await html2canvas(area, {
-  scale: 5,
+const canvas = await html2canvas(area, {
+  scale: window.devicePixelRatio || 2,
   useCORS: true,
-  backgroundColor: null
+  backgroundColor: "#ffffff"
 });
 
   const img = canvas.toDataURL("image/png");
