@@ -174,20 +174,20 @@ select {
   /* NOME (maior destaque) */
   .nome {
     transform: translateX(-50%) scaleX(1.05) scaleY(1.15);
-    top: 10%;
+    top: 15%;
     font-size: 6.3px;
   }
 
   /* DATA / SEXO */
   .data {
     left: 71%;
-    top: 12%;
+    top: 20%;
     font-size: 6px;
   }
 
   .sexo {
     left: 86%;
-    top: 12%;
+    top: 20%;
     font-size: 6px;
   }
 
