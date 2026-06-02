@@ -201,3 +201,27 @@ select {
   }
 
 }
+/* =========================
+   ÁREA FIXA PARA PDF
+========================= */
+
+.cartao-pdf{
+  position: absolute;
+  left: -99999px;
+  top: 0;
+
+  width: 2008px;
+  height: 650px;
+
+  overflow: hidden;
+}
+
+.cartao-pdf img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cartao-pdf .campo{
+  position: absolute;
+}
