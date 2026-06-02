@@ -200,4 +200,8 @@ select {
     font-size: 9px;
   }
 
+.exportacao {
+  width: 400px !important;
+  height: 129px !important;
+  max-width: 400px !important;
 }
