@@ -101,7 +101,7 @@ button.sair:hover {
 
 /* POSICIONAMENTO */
 .nome {
-  top: 20%;
+  top: 18%;
   left: 75%;
   transform: translateX(-50%);
   width: 45%;
@@ -110,14 +110,14 @@ button.sair:hover {
 }
 
 .data {
-  top: 28%;
+  top: 26%;
   left: 70%;
   transform: translateX(-50%);
   font-size: 0.3rem;
 }
 
 .sexo {
-  top: 28%;
+  top: 26%;
   left: 85%;
   transform: translateX(-50%);
   font-size: 0.3rem;
