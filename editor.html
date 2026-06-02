@@ -180,15 +180,7 @@ async function gerarPDF() {
   format: "a4"
 });
 
- const area = document.querySelector(".cartao-area");
-
-const larguraOriginal = area.style.width;
-const alturaOriginal = area.style.height;
-const transformOriginal = area.style.transform;
-
-area.style.width = "2008px";
-area.style.height = "650px";
-area.style.transform = "none";
+  const area = document.querySelector(".cartao-area");
 
   let y = 10;
 
@@ -204,10 +196,8 @@ area.style.transform = "none";
 
   await new Promise(r => setTimeout(r, 300));
 
-const canvas = await html2canvas(area, {
-  width: 2008,
-  height: 650,
-  scale: 1,
+ const canvas = await html2canvas(area, {
+  scale: 5,
   useCORS: true,
   backgroundColor: null
 });
@@ -220,10 +210,6 @@ const canvas = await html2canvas(area, {
 }
 
   pdf.save("cartoes.pdf");
-
-  area.style.width = larguraOriginal;
-area.style.height = alturaOriginal;
-area.style.transform = transformOriginal;
 
   localStorage.removeItem("cards");
 localStorage.removeItem("modelosSelecionados");
