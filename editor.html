@@ -59,9 +59,6 @@
 let cards = JSON.parse(localStorage.getItem("cards")) || [];
 
 // login
-if (localStorage.getItem("logado") !== "true") {
-  window.location.href = "index.html";
-}
 
 // 🔥 pega último modelo correto
 let modelos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
