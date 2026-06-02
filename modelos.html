@@ -61,7 +61,7 @@ fetch("modelos.json")
 
       const el = document.createElement("img");
 
-      el.src = `modelos/${categoria}/${img}`;
+      el.src = `modelos/${img}`;
       el.width = 300;
       el.style.cursor = "pointer";
       el.style.borderRadius = "10px";
@@ -79,7 +79,7 @@ function selecionarModelo(modelo) {
   modelosSelecionados.push(`${categoria}/${modelo}`);
 
   localStorage.setItem("modelosSelecionados", JSON.stringify(modelosSelecionados));
-  localStorage.setItem("modeloSelecionado", `${categoria}/${modelo}`);
+localStorage.setItem("modeloSelecionado", modelo);
 
   document.getElementById("modalConfirm").style.display = "flex";
 }
