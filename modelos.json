@@ -1,20 +1,14 @@
 {
   "infantil": [
     "patrulha-canina.png",
-   "Cartao-SUS-Playstaion.png",
-    
+    "Cartao-SUS-Playstaion.png"
   ],
 
   "times": [
-    "modelo1.png",
-
+    "modelo1.png"
   ],
 
-  "femininos": [
+  "femininos": [],
 
-  ],
-
-  "gospel": [
-
-  ]
+  "gospel": []
 }
