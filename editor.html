@@ -196,12 +196,16 @@ async function gerarPDF() {
 
   await new Promise(r => setTimeout(r, 300));
 
+area.classList.add("exportacao");
+    
 const canvas = await html2canvas(area, {
   scale: window.devicePixelRatio || 2,
   useCORS: true,
   backgroundColor: "#ffffff"
 });
 
+area.classList.remove("exportacao");
+    
   const img = canvas.toDataURL("image/png");
 
   pdf.addImage(img, "PNG", 20, y, 170, 55);
