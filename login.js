@@ -38,8 +38,15 @@ window.fazerLogin = async function() {
 
   console.error(error);
 
-  document.getElementById("erro").innerText =
-    "E-mail ou senha inválidos";
+  if (error.code === "auth/too-many-requests") {
 
-}
+    document.getElementById("erro").innerText =
+      "Muitas tentativas. Tente novamente mais tarde.";
+
+  } else {
+
+    document.getElementById("erro").innerText =
+      "E-mail ou senha inválidos";
+
+  }
 };
