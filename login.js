@@ -1,37 +1,43 @@
-const usuarios = [
-  {
-    login: "admin",
-    senha: "123456"
-  },
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-  {
-    login: "manoel",
-    senha: "123456"
-  }
+import {
+  getAuth,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-];
+const firebaseConfig = {
+  apiKey: "AIzaSyBDwyP3eH0m67QbzZPd8PVrUqfBDMIXYP0",
+  authDomain: "cartao-sus-app.firebaseapp.com",
+  projectId: "cartao-sus-app",
+  storageBucket: "cartao-sus-app.firebasestorage.app",
+  messagingSenderId: "436698501611",
+  appId: "1:436698501611:web:22e0c6c81496a11a8649ae"
+};
 
-function fazerLogin(){
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.fazerLogin = async function() {
 
   const usuario = document.getElementById("usuario").value;
   const senha = document.getElementById("senha").value;
 
-  const usuarioEncontrado = usuarios.find(user =>
-    user.login === usuario &&
-    user.senha === senha
-  );
+  try {
 
-  if(usuarioEncontrado){
+    await signInWithEmailAndPassword(
+      auth,
+      usuario,
+      senha
+    );
 
     localStorage.setItem("logado", "true");
 
     window.location.href = "painel.html";
 
-  }else{
+  } catch (error) {
 
     document.getElementById("erro").innerText =
       "Usuário ou senha inválidos";
 
   }
-
-}
+};
