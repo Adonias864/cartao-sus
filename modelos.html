@@ -38,16 +38,10 @@ if (localStorage.getItem("logado") !== "true") {
 }
 
 const categoria = localStorage.getItem("categoria");
-const area = document.getElementById("areaModelos");
 
 document.getElementById("tituloCategoria").innerText = categoria.toUpperCase();
 
-// 🔥 LIMPA MODELos ao entrar (evita bug de duplicação)
-let modelosSelecionados = [];
-
-// se quiser manter histórico, aqui já fica pronto:
-const antigos = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
-modelosSelecionados = antigos;
+let modelosSelecionados = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
 
 fetch("modelos.json")
   .then(res => res.json())
@@ -72,23 +66,17 @@ fetch("modelos.json")
       lista.appendChild(el);
     });
 
+  })
+  .catch(err => {
+    console.error("Erro ao carregar modelos.json:", err);
   });
 
 function selecionarModelo(modelo) {
 
-  modelosSelecionados.push(`${categoria}/${modelo}`);
-
-  localStorage.setItem("modelosSelecionados", JSON.stringify(modelosSelecionados));
-localStorage.setItem("modeloSelecionado", modelo);
-
-  document.getElementById("modalConfirm").style.display = "flex";
-}
-
-  // 🔥 adiciona SEM sobrescrever
   modelosSelecionados.push(modelo);
 
   localStorage.setItem("modelosSelecionados", JSON.stringify(modelosSelecionados));
-  localStorage.setItem("modeloSelecionado", modelo); // último ativo
+  localStorage.setItem("modeloSelecionado", modelo);
 
   document.getElementById("modalConfirm").style.display = "flex";
 }
