@@ -192,21 +192,31 @@ async function gerarPDF() {
   format: "a4"
 });
 
-  const area = document.querySelector(".cartao-area");
+  const area = document.getElementById("cartaoPDF");
 
   let y = 10;
 
   for (let c of cards) {
 
-  carregarModelo(c.modelo);
+  document.getElementById("cartaoPDFImg").src =
+  "modelos/" + c.modelo;
 
-  nomePreview.innerText = c.nome.toUpperCase();
-  dataPreview.innerText = "Data Nasc.: " + c.data;
-  sexoPreview.innerText = "Sexo: " + c.sexo;
-  cnsPreview.innerText = "CNS: " + c.cns;
-  cpfPreview.innerText = "CPF: " + c.cpf;
+document.getElementById("pdfNome").innerText =
+  c.nome.toUpperCase();
 
-  await new Promise(r => setTimeout(r, 300));
+document.getElementById("pdfData").innerText =
+  "Data Nasc.: " + c.data;
+
+document.getElementById("pdfSexo").innerText =
+  "Sexo: " + c.sexo;
+
+document.getElementById("pdfCns").innerText =
+  "CNS: " + c.cns;
+
+document.getElementById("pdfCpf").innerText =
+  "CPF: " + c.cpf;
+
+await new Promise(r => setTimeout(r, 500));
 
  const canvas = await html2canvas(area, {
   scale: 5,
