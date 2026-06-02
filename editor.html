@@ -24,18 +24,6 @@
   <div id="cpfPreview" class="campo cpf"></div>
 </div>
 
-  <div id="cartaoPDF" class="cartao-pdf">
-
-  <img id="cartaoPDFImg">
-
-  <div id="pdfNome" class="campo nome"></div>
-  <div id="pdfData" class="campo data"></div>
-  <div id="pdfSexo" class="campo sexo"></div>
-  <div id="pdfCns" class="campo cns"></div>
-  <div id="pdfCpf" class="campo cpf"></div>
-
-</div>
-
 <h2>Dados</h2>
 
 <input id="nome" placeholder="Nome Completo">
@@ -192,31 +180,21 @@ async function gerarPDF() {
   format: "a4"
 });
 
-  const area = document.getElementById("cartaoPDF");
+  const area = document.querySelector(".cartao-area");
 
   let y = 10;
 
   for (let c of cards) {
 
-  document.getElementById("cartaoPDFImg").src =
-  "modelos/" + c.modelo;
+  carregarModelo(c.modelo);
 
-document.getElementById("pdfNome").innerText =
-  c.nome.toUpperCase();
+  nomePreview.innerText = c.nome.toUpperCase();
+  dataPreview.innerText = "Data Nasc.: " + c.data;
+  sexoPreview.innerText = "Sexo: " + c.sexo;
+  cnsPreview.innerText = "CNS: " + c.cns;
+  cpfPreview.innerText = "CPF: " + c.cpf;
 
-document.getElementById("pdfData").innerText =
-  "Data Nasc.: " + c.data;
-
-document.getElementById("pdfSexo").innerText =
-  "Sexo: " + c.sexo;
-
-document.getElementById("pdfCns").innerText =
-  "CNS: " + c.cns;
-
-document.getElementById("pdfCpf").innerText =
-  "CPF: " + c.cpf;
-
-await new Promise(r => setTimeout(r, 500));
+  await new Promise(r => setTimeout(r, 300));
 
  const canvas = await html2canvas(area, {
   scale: 5,
