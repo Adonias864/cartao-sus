@@ -12,7 +12,7 @@
 
 <div class="login-box">
 
-<h1 id="tituloCategoria"></h1>
+<img id="bannerCategoria" class="banner-categoria">
 
 <p>Clique no cartão desejado para editar.</p>
 
@@ -39,7 +39,8 @@ if (localStorage.getItem("logado") !== "true") {
 
 const categoria = localStorage.getItem("categoria");
 
-document.getElementById("tituloCategoria").innerText = categoria.toUpperCase();
+document.getElementById("bannerCategoria").src =
+  "banners/" + categoria + "-banner.png";
 
 let modelosSelecionados = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
 
