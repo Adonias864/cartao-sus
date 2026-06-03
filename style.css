@@ -238,3 +238,26 @@ select {
   display: block;
   margin: 0 auto 20px auto;
 }
+
+  .btn-suporte{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+
+  background:#25D366;
+  color:#fff;
+
+  border:none;
+  border-radius:8px;
+
+  font-size:16px;
+  font-weight:bold;
+
+  cursor:pointer;
+
+  transition:0.2s;
+}
+
+.btn-suporte:hover{
+  transform:scale(1.02);
+}
