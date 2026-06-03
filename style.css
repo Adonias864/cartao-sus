@@ -10,8 +10,16 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f2f2f2;
   font-size: 16px;
+  min-height: 100vh;
+
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.20),
+    rgba(255, 235, 59, 0.20)
+  );
+
+  background-attachment: fixed;
 }
 
 /* =========================
