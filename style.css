@@ -208,3 +208,13 @@ select {
   height: 129px !important;
   max-width: 400px !important;
 }
+  
+  .logo-login {
+  width: 280px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
