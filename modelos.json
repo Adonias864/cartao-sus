@@ -1,9 +1,15 @@
 {
-  "infantil": [
-    "patrulha-canina.png"
-  ],
+  
+   "infantil-masc": [] 
 
-  "times": [
+   "infantil-femi": [] 
+
+   "adulto-masc": [] 
+
+   "adulto-femi": [] 
+
+  
+    "times": [
     "modelo1.png",
     "modelo2.png",
     "modelo3.png",
@@ -23,7 +29,6 @@
     "modelo17.png"  
   ],
 
-  "femininos": [],
-
-  "gospel": []
+  "cristao": [], 
+  
 }
