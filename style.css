@@ -232,3 +232,9 @@ select {
   display: block;
   margin: 0 auto 15px auto;
 }
+  .banner-categorias{
+  width: 600px;
+  max-width: 95%;
+  display: block;
+  margin: 0 auto 20px auto;
+}
