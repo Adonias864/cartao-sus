@@ -39,8 +39,17 @@ if (localStorage.getItem("logado") !== "true") {
 
 const categoria = localStorage.getItem("categoria");
 
+const banners = {
+  "infantil-masc": "logo.infantil_masc.png",
+  "infantil-femi": "logo.infantil_femi.png",
+  "adulto-masc": "adulto_masc.png",
+  "adulto-femi": "adulto_feminino.png",
+  "times": "times.png",
+  "cristao": "logo.cristao.png"
+};
+
 document.getElementById("bannerCategoria").src =
-  "banners/" + categoria + "-banner.png";
+  "banners/" + banners[categoria];
 
 let modelosSelecionados = JSON.parse(localStorage.getItem("modelosSelecionados")) || [];
 
